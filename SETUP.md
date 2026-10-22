@@ -1,12 +1,12 @@
 # Profile implementation
 
-This package is ready for review, not deployed. It implements the approved white / ink / blue / mustard design as linked SVG sections rather than a single screenshot.
+This profile is published at https://github.com/jichuo1. It implements the approved white / ink / blue / mustard design as linked SVG sections rather than a single screenshot.
 
 ## Installation
 
-Create the public repository `jichuo1/jichuo1` after approving publication. Copy README.md, assets/, scripts/, tests/, data/, source.json, contributions-source.html and .github/ into it. Commit to its default branch. GitHub displays the root README on the account profile. The workflow will run manually or twice daily after publication; no new personal access token is needed. It uses GitHub's ephemeral job token with contents:write limited to this repository.
+The public repository `jichuo1/jichuo1` contains the implementation on its main branch. GitHub displays the root README on the account profile. The workflow runs manually, on relevant implementation changes, or twice daily; no new personal access token is needed. It uses GitHub's ephemeral job token with contents:write limited to this repository.
 
-The supplied schedule is 00:23 and 12:23 UTC. GitHub may delay scheduled jobs, and inactive public repositories may have scheduled workflows disabled. The page shows the last successful check time rather than claiming live data. No workflow has been activated here.
+The supplied schedule is 00:23 and 12:23 UTC. GitHub may delay scheduled jobs, and inactive public repositories may have scheduled workflows disabled. The page shows the last successful check time rather than claiming live data. The workflow is enabled. Its first update job passed all steps on 2026-10-22.
 
 ## Data definitions
 
@@ -37,10 +37,10 @@ README uses picture sources for dark and light themes and screens up to 600 px. 
 ## Validation performed
 
 - 21 standard-library tests passed, including pagination, private filtering, duplicate rejection, stable vs prerelease selection, draft exclusion, malformed calendar failure, XML escaping, source fixture consistency and desktop/mobile SVG parsing.
-- Actual public repository metadata and all four complete Release lists were retrieved with the existing read-only GitHub connector at 2026-10-22 13:40 UTC. Public calendar HTML was retrieved separately. The current snapshot has 159 Stars, 7 public repos, 11 Forks and 3,713 asset downloads.
+- Actual public repository metadata and all four complete Release lists were retrieved with the existing read-only GitHub connector at 2026-10-22 13:40 UTC. Public calendar HTML was retrieved separately. That initial fixture has 159 Stars, 7 public repos, 11 Forks and 3,713 asset downloads. Live values and their check time are in data/snapshot.json.
 - SVG assets were rendered and visually inspected locally with Inkscape. These preview PNGs are code-generated renders, not GPT Image mocks.
-- Browser rendering was attempted but blocked by the cloud process sandbox; the headless browser could not start. This is not a successful browser or hosted GitHub validation.
-- No remote repository was created or modified; no Actions run, publication, recurring credential or subscription was configured.
+- The live GitHub profile was checked in the cloud browser after publication: all ten profile images loaded and all four project links matched their destinations. An earlier standalone headless Chromium attempt failed; this did not prevent the later hosted-page verification.
+- Publication commit: d7d1bff7c131bb100ff542340a8ef74c7f8e308f. First Actions update job: https://github.com/jichuo1/jichuo1/actions/runs/39797190421/job/119887365145 . All job steps passed, including tests, fetching data, and committing generated output. No personal access token or paid service was created.
 
 ## Sources
 
