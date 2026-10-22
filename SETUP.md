@@ -4,9 +4,9 @@ This profile is published at https://github.com/jichuo1. It implements the appro
 
 ## Installation
 
-The public repository `jichuo1/jichuo1` contains the implementation on its main branch. GitHub displays the root README on the account profile. The workflow runs manually, on relevant implementation changes, or twice daily; no new personal access token is needed. It uses GitHub's ephemeral job token with contents:write limited to this repository.
+The public repository `jichuo1/jichuo1` contains the implementation on its main branch. GitHub displays the root README on the account profile. The workflow runs manually, on relevant implementation changes, or every six hours; no new personal access token is needed. It uses GitHub's ephemeral job token with contents:write limited to this repository.
 
-The supplied schedule is 00:23 and 12:23 UTC. GitHub may delay scheduled jobs, and inactive public repositories may have scheduled workflows disabled. The page shows the last successful check time rather than claiming live data. The workflow is enabled. Its first update job passed all steps on 2026-10-22.
+The supplied schedule is 00:23, 06:23, 12:23 and 18:23 UTC. GitHub may delay scheduled jobs, and inactive public repositories may have scheduled workflows disabled. The page shows the last successful check time rather than claiming live data. The workflow is enabled. Its first update job passed all steps on 2026-10-22.
 
 ## Data definitions
 
