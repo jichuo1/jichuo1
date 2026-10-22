@@ -1,0 +1,2729 @@
+{
+  "checked_at": "2026-10-22T13:40:10.022Z",
+  "repos": [
+    {
+      "name": "Bilibili_Innocent_Lab",
+      "full_name": "jichuo1/Bilibili_Innocent_Lab",
+      "private": false,
+      "fork": false,
+      "language": "Kotlin",
+      "stargazers_count": 131,
+      "forks_count": 10,
+      "html_url": "https://github.com/jichuo1/Bilibili_Innocent_Lab"
+    },
+    {
+      "name": "LumenCoacervationEngine",
+      "full_name": "jichuo1/LumenCoacervationEngine",
+      "private": false,
+      "fork": false,
+      "language": "Kotlin",
+      "stargazers_count": 5,
+      "forks_count": 0,
+      "html_url": "https://github.com/jichuo1/LumenCoacervationEngine"
+    },
+    {
+      "name": "SplashScreenAdvanced",
+      "full_name": "jichuo1/SplashScreenAdvanced",
+      "private": false,
+      "fork": false,
+      "language": "Kotlin",
+      "stargazers_count": 23,
+      "forks_count": 0,
+      "html_url": "https://github.com/jichuo1/SplashScreenAdvanced"
+    },
+    {
+      "name": "GlobalTokenTracker",
+      "full_name": "jichuo1/GlobalTokenTracker",
+      "private": false,
+      "fork": false,
+      "language": "Rust",
+      "stargazers_count": 0,
+      "forks_count": 1,
+      "html_url": "https://github.com/jichuo1/GlobalTokenTracker"
+    },
+    {
+      "name": "BBZQ-Advanced",
+      "full_name": "jichuo1/BBZQ-Advanced",
+      "private": false,
+      "fork": true,
+      "language": "Kotlin",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "html_url": "https://github.com/jichuo1/BBZQ-Advanced"
+    },
+    {
+      "name": "NPatch-Advanced",
+      "full_name": "jichuo1/NPatch-Advanced",
+      "private": false,
+      "fork": true,
+      "language": "Java",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "html_url": "https://github.com/jichuo1/NPatch-Advanced"
+    },
+    {
+      "name": "innocent-lab-host-analysis",
+      "full_name": "jichuo1/innocent-lab-host-analysis",
+      "private": false,
+      "fork": false,
+      "language": "Python",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "html_url": "https://github.com/jichuo1/innocent-lab-host-analysis"
+    }
+  ],
+  "releases": {
+    "Bilibili_Innocent_Lab": [
+      {
+        "id": 418049293,
+        "tag_name": "v1.2.1",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-20T05:46:20Z",
+        "assets": [
+          {
+            "id": 658401799,
+            "download_count": 130
+          },
+          {
+            "id": 658401800,
+            "download_count": 3
+          },
+          {
+            "id": 658401801,
+            "download_count": 6
+          }
+        ]
+      },
+      {
+        "id": 412802049,
+        "tag_name": "v1.2.1-alpha.1",
+        "draft": false,
+        "prerelease": true,
+        "published_at": "2026-10-14T14:14:55Z",
+        "assets": [
+          {
+            "id": 640596055,
+            "download_count": 73
+          },
+          {
+            "id": 640596053,
+            "download_count": 4
+          },
+          {
+            "id": 640596056,
+            "download_count": 5
+          }
+        ]
+      },
+      {
+        "id": 400292022,
+        "tag_name": "v1.2.0",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-09-30T17:44:31Z",
+        "assets": [
+          {
+            "id": 601473843,
+            "download_count": 396
+          },
+          {
+            "id": 601473845,
+            "download_count": 12
+          },
+          {
+            "id": 601473848,
+            "download_count": 14
+          }
+        ]
+      },
+      {
+        "id": 395892603,
+        "tag_name": "v1.1.9",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-09-24T16:59:29Z",
+        "assets": [
+          {
+            "id": 586403296,
+            "download_count": 194
+          },
+          {
+            "id": 586403295,
+            "download_count": 2
+          },
+          {
+            "id": 586403301,
+            "download_count": 3
+          }
+        ]
+      },
+      {
+        "id": 394750766,
+        "tag_name": "v1.1.8",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-09-23T14:33:58Z",
+        "assets": [
+          {
+            "id": 583948018,
+            "download_count": 64
+          },
+          {
+            "id": 583948021,
+            "download_count": 2
+          },
+          {
+            "id": 583948019,
+            "download_count": 4
+          }
+        ]
+      },
+      {
+        "id": 390369608,
+        "tag_name": "v1.1.8-alpha.2",
+        "draft": false,
+        "prerelease": true,
+        "published_at": "2026-09-17T01:09:46Z",
+        "assets": [
+          {
+            "id": 569168368,
+            "download_count": 88
+          },
+          {
+            "id": 569168371,
+            "download_count": 1
+          },
+          {
+            "id": 569168372,
+            "download_count": 3
+          }
+        ]
+      },
+      {
+        "id": 389012771,
+        "tag_name": "v1.1.8-alpha.1",
+        "draft": false,
+        "prerelease": true,
+        "published_at": "2026-09-15T09:23:08Z",
+        "assets": [
+          {
+            "id": 565358257,
+            "download_count": 42
+          },
+          {
+            "id": 565358258,
+            "download_count": 1
+          },
+          {
+            "id": 565358261,
+            "download_count": 3
+          }
+        ]
+      },
+      {
+        "id": 387912230,
+        "tag_name": "v1.1.7",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-09-13T13:40:14Z",
+        "assets": [
+          {
+            "id": 561283766,
+            "download_count": 309
+          },
+          {
+            "id": 561283768,
+            "download_count": 7
+          },
+          {
+            "id": 561283765,
+            "download_count": 7
+          }
+        ]
+      },
+      {
+        "id": 387194852,
+        "tag_name": "v1.1.6",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-09-11T16:44:21Z",
+        "assets": [
+          {
+            "id": 557621109,
+            "download_count": 123
+          },
+          {
+            "id": 557621111,
+            "download_count": 3
+          },
+          {
+            "id": 557621110,
+            "download_count": 4
+          }
+        ]
+      },
+      {
+        "id": 384456676,
+        "tag_name": "v1.1.5",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-09-08T05:00:09Z",
+        "assets": [
+          {
+            "id": 549894600,
+            "download_count": 311
+          },
+          {
+            "id": 549894601,
+            "download_count": 3
+          },
+          {
+            "id": 549894602,
+            "download_count": 4
+          }
+        ]
+      },
+      {
+        "id": 383952028,
+        "tag_name": "v1.1.5-alpha.1",
+        "draft": false,
+        "prerelease": true,
+        "published_at": "2026-09-07T08:58:07Z",
+        "assets": [
+          {
+            "id": 548487269,
+            "download_count": 8
+          },
+          {
+            "id": 548487268,
+            "download_count": 1
+          },
+          {
+            "id": 548487265,
+            "download_count": 3
+          }
+        ]
+      },
+      {
+        "id": 383643427,
+        "tag_name": "v1.1.4",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-09-06T16:12:34Z",
+        "assets": [
+          {
+            "id": 547394181,
+            "download_count": 122
+          },
+          {
+            "id": 547394182,
+            "download_count": 3
+          },
+          {
+            "id": 547394183,
+            "download_count": 5
+          }
+        ]
+      },
+      {
+        "id": 383232199,
+        "tag_name": "v1.1.4-alpha.2",
+        "draft": false,
+        "prerelease": true,
+        "published_at": "2026-09-05T11:53:10Z",
+        "assets": [
+          {
+            "id": 545770761,
+            "download_count": 28
+          },
+          {
+            "id": 545770764,
+            "download_count": 3
+          },
+          {
+            "id": 545770766,
+            "download_count": 4
+          }
+        ]
+      },
+      {
+        "id": 382853003,
+        "tag_name": "v1.1.4-alpha.1",
+        "draft": false,
+        "prerelease": true,
+        "published_at": "2026-09-04T15:58:50Z",
+        "assets": [
+          {
+            "id": 544563861,
+            "download_count": 16
+          },
+          {
+            "id": 544563862,
+            "download_count": 2
+          },
+          {
+            "id": 544563860,
+            "download_count": 4
+          }
+        ]
+      },
+      {
+        "id": 382319642,
+        "tag_name": "v1.1.3",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-09-03T20:40:24Z",
+        "assets": [
+          {
+            "id": 543313385,
+            "download_count": 298
+          },
+          {
+            "id": 543313384,
+            "download_count": 3
+          },
+          {
+            "id": 543313387,
+            "download_count": 4
+          }
+        ]
+      },
+      {
+        "id": 381946724,
+        "tag_name": "v1.1.3-alpha.2",
+        "draft": false,
+        "prerelease": true,
+        "published_at": "2026-09-03T10:59:46Z",
+        "assets": [
+          {
+            "id": 542638217,
+            "download_count": 8
+          },
+          {
+            "id": 542638218,
+            "download_count": 1
+          },
+          {
+            "id": 542638219,
+            "download_count": 3
+          }
+        ]
+      },
+      {
+        "id": 381467286,
+        "tag_name": "v1.1.3-alpha.1",
+        "draft": false,
+        "prerelease": true,
+        "published_at": "2026-09-02T17:58:27Z",
+        "assets": [
+          {
+            "id": 541555708,
+            "download_count": 23
+          },
+          {
+            "id": 541555709,
+            "download_count": 1
+          },
+          {
+            "id": 541555707,
+            "download_count": 3
+          }
+        ]
+      },
+      {
+        "id": 380727849,
+        "tag_name": "v1.1.2",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-09-01T18:20:54Z",
+        "assets": [
+          {
+            "id": 539953617,
+            "download_count": 197
+          },
+          {
+            "id": 539953620,
+            "download_count": 3
+          },
+          {
+            "id": 539953614,
+            "download_count": 5
+          }
+        ]
+      },
+      {
+        "id": 380213402,
+        "tag_name": "v1.1.2-alpha.1",
+        "draft": false,
+        "prerelease": true,
+        "published_at": "2026-09-01T04:31:09Z",
+        "assets": [
+          {
+            "id": 538962098,
+            "download_count": 8
+          },
+          {
+            "id": 538962102,
+            "download_count": 1
+          },
+          {
+            "id": 538962104,
+            "download_count": 3
+          }
+        ]
+      },
+      {
+        "id": 379878421,
+        "tag_name": "v1.1.1",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-08-31T15:55:23Z",
+        "assets": [
+          {
+            "id": 538202583,
+            "download_count": 86
+          },
+          {
+            "id": 538202585,
+            "download_count": 2
+          },
+          {
+            "id": 538202584,
+            "download_count": 4
+          }
+        ]
+      },
+      {
+        "id": 379320038,
+        "tag_name": "v1.1.0",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-08-30T15:23:59Z",
+        "assets": [
+          {
+            "id": 536753388,
+            "download_count": 118
+          },
+          {
+            "id": 536753391,
+            "download_count": 4
+          },
+          {
+            "id": 536753389,
+            "download_count": 6
+          }
+        ]
+      },
+      {
+        "id": 379044180,
+        "tag_name": "v1.0.9",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-08-29T16:52:41Z",
+        "assets": [
+          {
+            "id": 535471276,
+            "download_count": 128
+          },
+          {
+            "id": 535471278,
+            "download_count": 3
+          },
+          {
+            "id": 535471277,
+            "download_count": 4
+          }
+        ]
+      },
+      {
+        "id": 377784174,
+        "tag_name": "v1.0.9-alpha.1",
+        "draft": false,
+        "prerelease": true,
+        "published_at": "2026-08-27T11:55:55Z",
+        "assets": [
+          {
+            "id": 532240789,
+            "download_count": 35
+          },
+          {
+            "id": 532240788,
+            "download_count": 2
+          },
+          {
+            "id": 532240790,
+            "download_count": 4
+          }
+        ]
+      },
+      {
+        "id": 377797821,
+        "tag_name": "v1.0.8",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-08-27T12:18:02Z",
+        "assets": [
+          {
+            "id": 532266430,
+            "download_count": 38
+          },
+          {
+            "id": 532266431,
+            "download_count": 5
+          },
+          {
+            "id": 532266432,
+            "download_count": 8
+          }
+        ]
+      },
+      {
+        "id": 377322184,
+        "tag_name": "v1.0.8-alpha.2",
+        "draft": false,
+        "prerelease": true,
+        "published_at": "2026-08-26T18:05:23Z",
+        "assets": [
+          {
+            "id": 531141500,
+            "download_count": 21
+          },
+          {
+            "id": 531141499,
+            "download_count": 2
+          },
+          {
+            "id": 531141501,
+            "download_count": 4
+          }
+        ]
+      },
+      {
+        "id": 377032617,
+        "tag_name": "v1.0.8-alpha.1",
+        "draft": false,
+        "prerelease": true,
+        "published_at": "2026-08-26T09:55:03Z",
+        "assets": [
+          {
+            "id": 530610316,
+            "download_count": 9
+          },
+          {
+            "id": 530610314,
+            "download_count": 1
+          },
+          {
+            "id": 530610313,
+            "download_count": 4
+          }
+        ]
+      },
+      {
+        "id": 376872955,
+        "tag_name": "v1.0.7",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-08-26T04:03:48Z",
+        "assets": [
+          {
+            "id": 530233687,
+            "download_count": 31
+          },
+          {
+            "id": 530233686,
+            "download_count": 8
+          }
+        ]
+      },
+      {
+        "id": 376568686,
+        "tag_name": "v1.0.7-alpha.4",
+        "draft": false,
+        "prerelease": true,
+        "published_at": "2026-08-25T17:00:05Z",
+        "assets": [
+          {
+            "id": 529507915,
+            "download_count": 1
+          },
+          {
+            "id": 529507917,
+            "download_count": 2
+          },
+          {
+            "id": 529507914,
+            "download_count": 3
+          }
+        ]
+      },
+      {
+        "id": 376343833,
+        "tag_name": "v1.0.7-alpha.3",
+        "draft": false,
+        "prerelease": true,
+        "published_at": "2026-08-25T11:15:03Z",
+        "assets": [
+          {
+            "id": 529088338,
+            "download_count": 1
+          },
+          {
+            "id": 529088337,
+            "download_count": 1
+          },
+          {
+            "id": 529088336,
+            "download_count": 3
+          }
+        ]
+      },
+      {
+        "id": 376244390,
+        "tag_name": "v1.0.7-alpha.2",
+        "draft": false,
+        "prerelease": true,
+        "published_at": "2026-08-25T08:15:29Z",
+        "assets": [
+          {
+            "id": 528871425,
+            "download_count": 1
+          },
+          {
+            "id": 528871427,
+            "download_count": 1
+          },
+          {
+            "id": 528871428,
+            "download_count": 3
+          }
+        ]
+      },
+      {
+        "id": 375669715,
+        "tag_name": "v1.0.7-alpha.1",
+        "draft": false,
+        "prerelease": true,
+        "published_at": "2026-08-24T12:11:03Z",
+        "assets": [
+          {
+            "id": 527562468,
+            "download_count": 2
+          },
+          {
+            "id": 527562469,
+            "download_count": 1
+          },
+          {
+            "id": 527562470,
+            "download_count": 3
+          }
+        ]
+      },
+      {
+        "id": 375594658,
+        "tag_name": "v1.0.6",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-08-24T09:52:47Z",
+        "assets": [
+          {
+            "id": 529059796,
+            "download_count": 4
+          },
+          {
+            "id": 529059299,
+            "download_count": 5
+          }
+        ]
+      },
+      {
+        "id": 375356971,
+        "tag_name": "v1.0.6-alpha.1",
+        "draft": false,
+        "prerelease": true,
+        "published_at": "2026-08-23T23:26:11Z",
+        "assets": [
+          {
+            "id": 526817175,
+            "download_count": 4
+          },
+          {
+            "id": 526817405,
+            "download_count": 4
+          }
+        ]
+      },
+      {
+        "id": 375282865,
+        "tag_name": "v1.0.5",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-08-23T17:53:02Z",
+        "assets": [
+          {
+            "id": 526476113,
+            "download_count": 1
+          },
+          {
+            "id": 526476217,
+            "download_count": 4
+          }
+        ]
+      },
+      {
+        "id": 375265168,
+        "tag_name": "v1.0.5-alpha.2",
+        "draft": false,
+        "prerelease": true,
+        "published_at": "2026-08-23T16:35:18Z",
+        "assets": [
+          {
+            "id": 526411491,
+            "download_count": 1
+          },
+          {
+            "id": 526411492,
+            "download_count": 3
+          }
+        ]
+      },
+      {
+        "id": 375251364,
+        "tag_name": "v1.0.5-alpha.1",
+        "draft": false,
+        "prerelease": true,
+        "published_at": "2026-08-23T15:38:15Z",
+        "assets": [
+          {
+            "id": 526364528,
+            "download_count": 3
+          }
+        ]
+      },
+      {
+        "id": 375249316,
+        "tag_name": "v1.0.4",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-08-23T15:29:39Z",
+        "assets": [
+          {
+            "id": 526357699,
+            "download_count": 2
+          }
+        ]
+      }
+    ],
+    "LumenCoacervationEngine": [
+      {
+        "id": 418416591,
+        "tag_name": "1.5.1",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-20T13:14:42Z",
+        "assets": [
+          {
+            "id": 659375935,
+            "download_count": 1
+          },
+          {
+            "id": 659375940,
+            "download_count": 1
+          },
+          {
+            "id": 659375969,
+            "download_count": 1
+          },
+          {
+            "id": 659375972,
+            "download_count": 1
+          },
+          {
+            "id": 659375970,
+            "download_count": 1
+          },
+          {
+            "id": 659375979,
+            "download_count": 1
+          },
+          {
+            "id": 659375981,
+            "download_count": 1
+          },
+          {
+            "id": 659375998,
+            "download_count": 1
+          },
+          {
+            "id": 659376000,
+            "download_count": 1
+          },
+          {
+            "id": 659376003,
+            "download_count": 1
+          },
+          {
+            "id": 659376004,
+            "download_count": 1
+          },
+          {
+            "id": 659376008,
+            "download_count": 1
+          },
+          {
+            "id": 659404788,
+            "download_count": 1
+          },
+          {
+            "id": 659376012,
+            "download_count": 1
+          },
+          {
+            "id": 659376013,
+            "download_count": 1
+          },
+          {
+            "id": 659376016,
+            "download_count": 1
+          },
+          {
+            "id": 659376014,
+            "download_count": 1
+          },
+          {
+            "id": 659376017,
+            "download_count": 1
+          },
+          {
+            "id": 659376025,
+            "download_count": 1
+          },
+          {
+            "id": 659376027,
+            "download_count": 1
+          },
+          {
+            "id": 659375942,
+            "download_count": 1
+          },
+          {
+            "id": 659408779,
+            "download_count": 0
+          },
+          {
+            "id": 659408777,
+            "download_count": 1
+          }
+        ]
+      },
+      {
+        "id": 416311158,
+        "tag_name": "1.5.0",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-18T07:51:48Z",
+        "assets": [
+          {
+            "id": 652856730,
+            "download_count": 1
+          },
+          {
+            "id": 652856731,
+            "download_count": 1
+          },
+          {
+            "id": 652856744,
+            "download_count": 1
+          },
+          {
+            "id": 652856746,
+            "download_count": 1
+          },
+          {
+            "id": 652856751,
+            "download_count": 1
+          },
+          {
+            "id": 652856753,
+            "download_count": 1
+          },
+          {
+            "id": 652856758,
+            "download_count": 1
+          },
+          {
+            "id": 652856761,
+            "download_count": 1
+          },
+          {
+            "id": 652856765,
+            "download_count": 1
+          },
+          {
+            "id": 652856771,
+            "download_count": 1
+          },
+          {
+            "id": 652856772,
+            "download_count": 1
+          },
+          {
+            "id": 652856780,
+            "download_count": 1
+          },
+          {
+            "id": 652879235,
+            "download_count": 2
+          },
+          {
+            "id": 652856788,
+            "download_count": 1
+          },
+          {
+            "id": 652856790,
+            "download_count": 1
+          },
+          {
+            "id": 652856791,
+            "download_count": 1
+          },
+          {
+            "id": 652856793,
+            "download_count": 1
+          },
+          {
+            "id": 652856801,
+            "download_count": 1
+          },
+          {
+            "id": 652856806,
+            "download_count": 1
+          },
+          {
+            "id": 652856821,
+            "download_count": 1
+          },
+          {
+            "id": 652856728,
+            "download_count": 1
+          },
+          {
+            "id": 652881666,
+            "download_count": 1
+          },
+          {
+            "id": 652881664,
+            "download_count": 1
+          }
+        ]
+      },
+      {
+        "id": 415120648,
+        "tag_name": "1.4.6",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-16T15:42:14Z",
+        "assets": [
+          {
+            "id": 647783647,
+            "download_count": 2
+          },
+          {
+            "id": 647783653,
+            "download_count": 2
+          },
+          {
+            "id": 647783670,
+            "download_count": 2
+          },
+          {
+            "id": 647783674,
+            "download_count": 2
+          },
+          {
+            "id": 647783679,
+            "download_count": 2
+          },
+          {
+            "id": 647783682,
+            "download_count": 2
+          },
+          {
+            "id": 647783685,
+            "download_count": 2
+          },
+          {
+            "id": 647783699,
+            "download_count": 2
+          },
+          {
+            "id": 647783708,
+            "download_count": 2
+          },
+          {
+            "id": 647783712,
+            "download_count": 2
+          },
+          {
+            "id": 647783715,
+            "download_count": 2
+          },
+          {
+            "id": 647783723,
+            "download_count": 2
+          },
+          {
+            "id": 647807843,
+            "download_count": 2
+          },
+          {
+            "id": 647783729,
+            "download_count": 2
+          },
+          {
+            "id": 647783746,
+            "download_count": 2
+          },
+          {
+            "id": 647783754,
+            "download_count": 2
+          },
+          {
+            "id": 647783764,
+            "download_count": 2
+          },
+          {
+            "id": 647783769,
+            "download_count": 2
+          },
+          {
+            "id": 647783774,
+            "download_count": 2
+          },
+          {
+            "id": 647783773,
+            "download_count": 2
+          },
+          {
+            "id": 647783649,
+            "download_count": 3
+          },
+          {
+            "id": 647816899,
+            "download_count": 2
+          },
+          {
+            "id": 647816898,
+            "download_count": 2
+          }
+        ]
+      },
+      {
+        "id": 413415081,
+        "tag_name": "1.4.5",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-15T04:24:14Z",
+        "assets": [
+          {
+            "id": 642652399,
+            "download_count": 2
+          },
+          {
+            "id": 642652404,
+            "download_count": 2
+          },
+          {
+            "id": 642652416,
+            "download_count": 2
+          },
+          {
+            "id": 642652425,
+            "download_count": 2
+          },
+          {
+            "id": 642652427,
+            "download_count": 2
+          },
+          {
+            "id": 642652431,
+            "download_count": 2
+          },
+          {
+            "id": 642652442,
+            "download_count": 2
+          },
+          {
+            "id": 642652456,
+            "download_count": 2
+          },
+          {
+            "id": 642652463,
+            "download_count": 2
+          },
+          {
+            "id": 642652465,
+            "download_count": 2
+          },
+          {
+            "id": 642652471,
+            "download_count": 2
+          },
+          {
+            "id": 642652472,
+            "download_count": 2
+          },
+          {
+            "id": 642673837,
+            "download_count": 2
+          },
+          {
+            "id": 642652475,
+            "download_count": 2
+          },
+          {
+            "id": 642652484,
+            "download_count": 2
+          },
+          {
+            "id": 642652485,
+            "download_count": 2
+          },
+          {
+            "id": 642652490,
+            "download_count": 3
+          },
+          {
+            "id": 642652494,
+            "download_count": 2
+          },
+          {
+            "id": 642652497,
+            "download_count": 2
+          },
+          {
+            "id": 642652501,
+            "download_count": 3
+          },
+          {
+            "id": 642652403,
+            "download_count": 4
+          },
+          {
+            "id": 642675402,
+            "download_count": 2
+          },
+          {
+            "id": 642675401,
+            "download_count": 2
+          }
+        ]
+      },
+      {
+        "id": 413018939,
+        "tag_name": "1.4.4",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-14T17:59:55Z",
+        "assets": [
+          {
+            "id": 641191704,
+            "download_count": 1
+          },
+          {
+            "id": 641191707,
+            "download_count": 1
+          },
+          {
+            "id": 641191729,
+            "download_count": 1
+          },
+          {
+            "id": 641191731,
+            "download_count": 1
+          },
+          {
+            "id": 641191736,
+            "download_count": 1
+          },
+          {
+            "id": 641191737,
+            "download_count": 1
+          },
+          {
+            "id": 641191738,
+            "download_count": 1
+          },
+          {
+            "id": 641191748,
+            "download_count": 1
+          },
+          {
+            "id": 641191749,
+            "download_count": 1
+          },
+          {
+            "id": 641191757,
+            "download_count": 1
+          },
+          {
+            "id": 641191764,
+            "download_count": 1
+          },
+          {
+            "id": 641191767,
+            "download_count": 1
+          },
+          {
+            "id": 641218701,
+            "download_count": 1
+          },
+          {
+            "id": 641191766,
+            "download_count": 1
+          },
+          {
+            "id": 641191768,
+            "download_count": 1
+          },
+          {
+            "id": 641191776,
+            "download_count": 1
+          },
+          {
+            "id": 641191773,
+            "download_count": 1
+          },
+          {
+            "id": 641191781,
+            "download_count": 1
+          },
+          {
+            "id": 641191786,
+            "download_count": 1
+          },
+          {
+            "id": 641191788,
+            "download_count": 1
+          },
+          {
+            "id": 641191706,
+            "download_count": 3
+          },
+          {
+            "id": 641220771,
+            "download_count": 1
+          },
+          {
+            "id": 641220769,
+            "download_count": 1
+          }
+        ]
+      },
+      {
+        "id": 412690439,
+        "tag_name": "1.4.3",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-14T12:29:15Z",
+        "assets": [
+          {
+            "id": 640320866,
+            "download_count": 1
+          },
+          {
+            "id": 640320860,
+            "download_count": 1
+          },
+          {
+            "id": 640320883,
+            "download_count": 1
+          },
+          {
+            "id": 640320882,
+            "download_count": 1
+          },
+          {
+            "id": 640320884,
+            "download_count": 1
+          },
+          {
+            "id": 640320885,
+            "download_count": 1
+          },
+          {
+            "id": 640320899,
+            "download_count": 1
+          },
+          {
+            "id": 640320896,
+            "download_count": 1
+          },
+          {
+            "id": 640320897,
+            "download_count": 1
+          },
+          {
+            "id": 640320898,
+            "download_count": 1
+          },
+          {
+            "id": 640320919,
+            "download_count": 1
+          },
+          {
+            "id": 640320922,
+            "download_count": 1
+          },
+          {
+            "id": 640345375,
+            "download_count": 1
+          },
+          {
+            "id": 640320928,
+            "download_count": 1
+          },
+          {
+            "id": 640320930,
+            "download_count": 1
+          },
+          {
+            "id": 640320932,
+            "download_count": 1
+          },
+          {
+            "id": 640320935,
+            "download_count": 1
+          },
+          {
+            "id": 640320950,
+            "download_count": 1
+          },
+          {
+            "id": 640320959,
+            "download_count": 1
+          },
+          {
+            "id": 640320964,
+            "download_count": 1
+          },
+          {
+            "id": 640320864,
+            "download_count": 1
+          },
+          {
+            "id": 640347565,
+            "download_count": 1
+          },
+          {
+            "id": 640347564,
+            "download_count": 1
+          }
+        ]
+      },
+      {
+        "id": 412568159,
+        "tag_name": "1.4.2",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-14T10:36:07Z",
+        "assets": [
+          {
+            "id": 640050248,
+            "download_count": 2
+          },
+          {
+            "id": 640050249,
+            "download_count": 2
+          },
+          {
+            "id": 640050272,
+            "download_count": 2
+          },
+          {
+            "id": 640050274,
+            "download_count": 2
+          },
+          {
+            "id": 640050275,
+            "download_count": 2
+          },
+          {
+            "id": 640050279,
+            "download_count": 2
+          },
+          {
+            "id": 640050283,
+            "download_count": 2
+          },
+          {
+            "id": 640050295,
+            "download_count": 2
+          },
+          {
+            "id": 640050300,
+            "download_count": 2
+          },
+          {
+            "id": 640050297,
+            "download_count": 2
+          },
+          {
+            "id": 640050296,
+            "download_count": 2
+          },
+          {
+            "id": 640050310,
+            "download_count": 2
+          },
+          {
+            "id": 640076833,
+            "download_count": 2
+          },
+          {
+            "id": 640050315,
+            "download_count": 2
+          },
+          {
+            "id": 640050314,
+            "download_count": 2
+          },
+          {
+            "id": 640050331,
+            "download_count": 2
+          },
+          {
+            "id": 640050330,
+            "download_count": 2
+          },
+          {
+            "id": 640050332,
+            "download_count": 2
+          },
+          {
+            "id": 640050336,
+            "download_count": 2
+          },
+          {
+            "id": 640050345,
+            "download_count": 2
+          },
+          {
+            "id": 640050246,
+            "download_count": 2
+          },
+          {
+            "id": 640082928,
+            "download_count": 2
+          },
+          {
+            "id": 640082912,
+            "download_count": 4
+          }
+        ]
+      },
+      {
+        "id": 410674156,
+        "tag_name": "1.4.1",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-12T14:09:16Z",
+        "assets": [
+          {
+            "id": 633973031,
+            "download_count": 1
+          },
+          {
+            "id": 633973028,
+            "download_count": 1
+          },
+          {
+            "id": 633973039,
+            "download_count": 1
+          },
+          {
+            "id": 633973042,
+            "download_count": 1
+          },
+          {
+            "id": 633973045,
+            "download_count": 1
+          },
+          {
+            "id": 633973068,
+            "download_count": 1
+          },
+          {
+            "id": 633973070,
+            "download_count": 1
+          },
+          {
+            "id": 633973069,
+            "download_count": 1
+          },
+          {
+            "id": 633973071,
+            "download_count": 1
+          },
+          {
+            "id": 633973075,
+            "download_count": 1
+          },
+          {
+            "id": 633973100,
+            "download_count": 1
+          },
+          {
+            "id": 633973107,
+            "download_count": 1
+          },
+          {
+            "id": 633997858,
+            "download_count": 1
+          },
+          {
+            "id": 633973105,
+            "download_count": 1
+          },
+          {
+            "id": 633973108,
+            "download_count": 1
+          },
+          {
+            "id": 633973109,
+            "download_count": 1
+          },
+          {
+            "id": 633973120,
+            "download_count": 1
+          },
+          {
+            "id": 633973124,
+            "download_count": 1
+          },
+          {
+            "id": 633973127,
+            "download_count": 1
+          },
+          {
+            "id": 634004535,
+            "download_count": 2
+          },
+          {
+            "id": 634004537,
+            "download_count": 2
+          }
+        ]
+      },
+      {
+        "id": 410171025,
+        "tag_name": "1.4.0",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-12T05:05:07Z",
+        "assets": [
+          {
+            "id": 632682971,
+            "download_count": 0
+          },
+          {
+            "id": 632682975,
+            "download_count": 0
+          },
+          {
+            "id": 632682977,
+            "download_count": 0
+          },
+          {
+            "id": 632682972,
+            "download_count": 0
+          },
+          {
+            "id": 632682976,
+            "download_count": 0
+          },
+          {
+            "id": 632682988,
+            "download_count": 0
+          },
+          {
+            "id": 632682992,
+            "download_count": 0
+          },
+          {
+            "id": 632682990,
+            "download_count": 0
+          },
+          {
+            "id": 632682995,
+            "download_count": 0
+          },
+          {
+            "id": 632682994,
+            "download_count": 0
+          },
+          {
+            "id": 632757721,
+            "download_count": 1
+          },
+          {
+            "id": 632683009,
+            "download_count": 0
+          },
+          {
+            "id": 632683008,
+            "download_count": 0
+          },
+          {
+            "id": 632683010,
+            "download_count": 0
+          },
+          {
+            "id": 632683012,
+            "download_count": 1
+          },
+          {
+            "id": 632683078,
+            "download_count": 0
+          },
+          {
+            "id": 632683097,
+            "download_count": 1
+          },
+          {
+            "id": 632769378,
+            "download_count": 0
+          },
+          {
+            "id": 632769377,
+            "download_count": 1
+          },
+          {
+            "id": 632769379,
+            "download_count": 0
+          }
+        ]
+      },
+      {
+        "id": 409850521,
+        "tag_name": "1.3.0",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-11T18:40:50Z",
+        "assets": [
+          {
+            "id": 631507532,
+            "download_count": 1
+          },
+          {
+            "id": 631507534,
+            "download_count": 1
+          },
+          {
+            "id": 631507533,
+            "download_count": 1
+          },
+          {
+            "id": 631507528,
+            "download_count": 1
+          },
+          {
+            "id": 631507526,
+            "download_count": 1
+          },
+          {
+            "id": 631507558,
+            "download_count": 1
+          },
+          {
+            "id": 631507557,
+            "download_count": 1
+          },
+          {
+            "id": 631507561,
+            "download_count": 1
+          },
+          {
+            "id": 631507564,
+            "download_count": 1
+          },
+          {
+            "id": 631507565,
+            "download_count": 1
+          },
+          {
+            "id": 631523969,
+            "download_count": 2
+          },
+          {
+            "id": 631507592,
+            "download_count": 1
+          },
+          {
+            "id": 631507593,
+            "download_count": 1
+          },
+          {
+            "id": 631507598,
+            "download_count": 1
+          },
+          {
+            "id": 631507596,
+            "download_count": 1
+          },
+          {
+            "id": 631507718,
+            "download_count": 1
+          },
+          {
+            "id": 631507742,
+            "download_count": 1
+          },
+          {
+            "id": 631507814,
+            "download_count": 1
+          },
+          {
+            "id": 631528099,
+            "download_count": 2
+          },
+          {
+            "id": 631528101,
+            "download_count": 1
+          }
+        ]
+      },
+      {
+        "id": 409170758,
+        "tag_name": "1.2.6",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-10T19:56:45Z",
+        "assets": [
+          {
+            "id": 628857985,
+            "download_count": 0
+          },
+          {
+            "id": 628857984,
+            "download_count": 0
+          },
+          {
+            "id": 628857986,
+            "download_count": 0
+          },
+          {
+            "id": 628857981,
+            "download_count": 0
+          },
+          {
+            "id": 628857983,
+            "download_count": 0
+          },
+          {
+            "id": 628858011,
+            "download_count": 0
+          },
+          {
+            "id": 628858012,
+            "download_count": 0
+          },
+          {
+            "id": 628858014,
+            "download_count": 0
+          },
+          {
+            "id": 628858015,
+            "download_count": 0
+          },
+          {
+            "id": 628858017,
+            "download_count": 0
+          },
+          {
+            "id": 628880456,
+            "download_count": 0
+          },
+          {
+            "id": 628858090,
+            "download_count": 0
+          },
+          {
+            "id": 628858110,
+            "download_count": 0
+          },
+          {
+            "id": 628858122,
+            "download_count": 0
+          },
+          {
+            "id": 628858133,
+            "download_count": 0
+          },
+          {
+            "id": 628858220,
+            "download_count": 0
+          },
+          {
+            "id": 628858267,
+            "download_count": 0
+          },
+          {
+            "id": 628883856,
+            "download_count": 0
+          },
+          {
+            "id": 628883849,
+            "download_count": 1
+          },
+          {
+            "id": 628883848,
+            "download_count": 0
+          }
+        ]
+      },
+      {
+        "id": 408978963,
+        "tag_name": "1.2.5",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-10T13:46:59Z",
+        "assets": [
+          {
+            "id": 628088875,
+            "download_count": 0
+          },
+          {
+            "id": 628088878,
+            "download_count": 0
+          },
+          {
+            "id": 628088873,
+            "download_count": 0
+          },
+          {
+            "id": 628088877,
+            "download_count": 0
+          },
+          {
+            "id": 628088876,
+            "download_count": 0
+          },
+          {
+            "id": 628088896,
+            "download_count": 0
+          },
+          {
+            "id": 628088899,
+            "download_count": 0
+          },
+          {
+            "id": 628088898,
+            "download_count": 0
+          },
+          {
+            "id": 628088900,
+            "download_count": 0
+          },
+          {
+            "id": 628088905,
+            "download_count": 0
+          },
+          {
+            "id": 628103000,
+            "download_count": 1
+          },
+          {
+            "id": 628089234,
+            "download_count": 0
+          },
+          {
+            "id": 628089240,
+            "download_count": 0
+          },
+          {
+            "id": 628089378,
+            "download_count": 0
+          },
+          {
+            "id": 628089406,
+            "download_count": 0
+          },
+          {
+            "id": 628089556,
+            "download_count": 0
+          },
+          {
+            "id": 628089582,
+            "download_count": 0
+          },
+          {
+            "id": 628089871,
+            "download_count": 0
+          },
+          {
+            "id": 628109262,
+            "download_count": 0
+          },
+          {
+            "id": 628109261,
+            "download_count": 0
+          }
+        ]
+      },
+      {
+        "id": 407616738,
+        "tag_name": "1.2.2",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-09T06:55:47Z",
+        "assets": [
+          {
+            "id": 624194698,
+            "download_count": 0
+          },
+          {
+            "id": 624194686,
+            "download_count": 0
+          },
+          {
+            "id": 624194699,
+            "download_count": 0
+          },
+          {
+            "id": 624194697,
+            "download_count": 0
+          },
+          {
+            "id": 624194696,
+            "download_count": 0
+          },
+          {
+            "id": 624194759,
+            "download_count": 0
+          },
+          {
+            "id": 624194760,
+            "download_count": 0
+          },
+          {
+            "id": 624194761,
+            "download_count": 0
+          },
+          {
+            "id": 624194762,
+            "download_count": 0
+          },
+          {
+            "id": 624194763,
+            "download_count": 0
+          },
+          {
+            "id": 624194266,
+            "download_count": 1
+          },
+          {
+            "id": 624194781,
+            "download_count": 0
+          },
+          {
+            "id": 624194783,
+            "download_count": 0
+          },
+          {
+            "id": 624194786,
+            "download_count": 0
+          },
+          {
+            "id": 624194793,
+            "download_count": 0
+          },
+          {
+            "id": 624194841,
+            "download_count": 0
+          },
+          {
+            "id": 624194936,
+            "download_count": 0
+          },
+          {
+            "id": 624194952,
+            "download_count": 0
+          },
+          {
+            "id": 624203083,
+            "download_count": 0
+          },
+          {
+            "id": 624203086,
+            "download_count": 0
+          }
+        ]
+      },
+      {
+        "id": 406509126,
+        "tag_name": "1.2.1",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-08T06:50:05Z",
+        "assets": [
+          {
+            "id": 621053866,
+            "download_count": 0
+          },
+          {
+            "id": 621053865,
+            "download_count": 0
+          },
+          {
+            "id": 621053862,
+            "download_count": 0
+          },
+          {
+            "id": 621053863,
+            "download_count": 0
+          },
+          {
+            "id": 621053869,
+            "download_count": 0
+          },
+          {
+            "id": 621053888,
+            "download_count": 0
+          },
+          {
+            "id": 621053892,
+            "download_count": 0
+          },
+          {
+            "id": 621053893,
+            "download_count": 0
+          },
+          {
+            "id": 621053894,
+            "download_count": 0
+          },
+          {
+            "id": 621053897,
+            "download_count": 0
+          },
+          {
+            "id": 621066170,
+            "download_count": 2
+          },
+          {
+            "id": 621053923,
+            "download_count": 0
+          },
+          {
+            "id": 621053925,
+            "download_count": 0
+          },
+          {
+            "id": 621053939,
+            "download_count": 0
+          },
+          {
+            "id": 621053937,
+            "download_count": 0
+          },
+          {
+            "id": 621054016,
+            "download_count": 0
+          },
+          {
+            "id": 621054032,
+            "download_count": 0
+          },
+          {
+            "id": 621054078,
+            "download_count": 0
+          },
+          {
+            "id": 621087653,
+            "download_count": 1
+          },
+          {
+            "id": 621087655,
+            "download_count": 0
+          }
+        ]
+      },
+      {
+        "id": 406119041,
+        "tag_name": "1.2.0",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-07T20:04:10Z",
+        "assets": [
+          {
+            "id": 619689098,
+            "download_count": 0
+          },
+          {
+            "id": 619688998,
+            "download_count": 0
+          },
+          {
+            "id": 619698895,
+            "download_count": 1
+          },
+          {
+            "id": 619689022,
+            "download_count": 0
+          },
+          {
+            "id": 619689043,
+            "download_count": 0
+          },
+          {
+            "id": 619689012,
+            "download_count": 0
+          },
+          {
+            "id": 619689004,
+            "download_count": 0
+          },
+          {
+            "id": 619678279,
+            "download_count": 0
+          },
+          {
+            "id": 619703885,
+            "download_count": 0
+          },
+          {
+            "id": 619703865,
+            "download_count": 0
+          }
+        ]
+      },
+      {
+        "id": 405423563,
+        "tag_name": "1.1.0",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-07T05:50:39Z",
+        "assets": [
+          {
+            "id": 617727983,
+            "download_count": 0
+          },
+          {
+            "id": 617861162,
+            "download_count": 2
+          },
+          {
+            "id": 617727982,
+            "download_count": 0
+          },
+          {
+            "id": 617727994,
+            "download_count": 0
+          }
+        ]
+      },
+      {
+        "id": 397730158,
+        "tag_name": "1.0.0",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-09-27T16:50:53Z",
+        "assets": [
+          {
+            "id": 601507010,
+            "download_count": 5
+          }
+        ]
+      }
+    ],
+    "SplashScreenAdvanced": [
+      {
+        "id": 407812714,
+        "tag_name": "v1.0.7",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-09T10:38:44Z",
+        "assets": [
+          {
+            "id": 624659556,
+            "download_count": 2
+          },
+          {
+            "id": 624659558,
+            "download_count": 2
+          },
+          {
+            "id": 624659557,
+            "download_count": 61
+          }
+        ]
+      },
+      {
+        "id": 406379987,
+        "tag_name": "v1.0.6",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-08T03:27:03Z",
+        "assets": [
+          {
+            "id": 620596956,
+            "download_count": 1
+          },
+          {
+            "id": 620596963,
+            "download_count": 2
+          },
+          {
+            "id": 620596967,
+            "download_count": 18
+          }
+        ]
+      },
+      {
+        "id": 400130713,
+        "tag_name": "v1.0.5",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-09-30T14:30:27Z",
+        "assets": [
+          {
+            "id": 601118575,
+            "download_count": 1
+          },
+          {
+            "id": 601118578,
+            "download_count": 2
+          },
+          {
+            "id": 601118579,
+            "download_count": 31
+          }
+        ]
+      },
+      {
+        "id": 398075729,
+        "tag_name": "v1.0.4",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-09-28T08:44:13Z",
+        "assets": [
+          {
+            "id": 594935509,
+            "download_count": 1
+          },
+          {
+            "id": 594935510,
+            "download_count": 2
+          },
+          {
+            "id": 594935508,
+            "download_count": 11
+          }
+        ]
+      },
+      {
+        "id": 396750139,
+        "tag_name": "v1.0.3",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-09-25T16:10:03Z",
+        "assets": [
+          {
+            "id": 588723094,
+            "download_count": 1
+          },
+          {
+            "id": 588723087,
+            "download_count": 2
+          },
+          {
+            "id": 588723086,
+            "download_count": 14
+          }
+        ]
+      },
+      {
+        "id": 394746960,
+        "tag_name": "v1.0.2",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-09-23T14:29:59Z",
+        "assets": [
+          {
+            "id": 583940804,
+            "download_count": 1
+          },
+          {
+            "id": 583940806,
+            "download_count": 3
+          },
+          {
+            "id": 583940805,
+            "download_count": 17
+          }
+        ]
+      },
+      {
+        "id": 392830102,
+        "tag_name": "v1.0.2-alpha.1",
+        "draft": false,
+        "prerelease": true,
+        "published_at": "2026-09-21T09:27:04Z",
+        "assets": [
+          {
+            "id": 578702937,
+            "download_count": 1
+          },
+          {
+            "id": 578702936,
+            "download_count": 2
+          },
+          {
+            "id": 578702935,
+            "download_count": 5
+          }
+        ]
+      },
+      {
+        "id": 394242152,
+        "tag_name": "v1.0.2-Canary.1",
+        "draft": false,
+        "prerelease": true,
+        "published_at": "2026-09-23T02:05:05Z",
+        "assets": [
+          {
+            "id": 582736344,
+            "download_count": 1
+          }
+        ]
+      },
+      {
+        "id": 391316380,
+        "tag_name": "v1.0.1",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-09-18T08:23:41Z",
+        "assets": [
+          {
+            "id": 572172232,
+            "download_count": 1
+          },
+          {
+            "id": 572172233,
+            "download_count": 2
+          },
+          {
+            "id": 572172235,
+            "download_count": 24
+          }
+        ]
+      },
+      {
+        "id": 389879548,
+        "tag_name": "v1.0.0",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-09-16T11:52:30Z",
+        "assets": [
+          {
+            "id": 567870475,
+            "download_count": 1
+          },
+          {
+            "id": 567870471,
+            "download_count": 1
+          },
+          {
+            "id": 567870468,
+            "download_count": 2
+          }
+        ]
+      }
+    ],
+    "GlobalTokenTracker": [
+      {
+        "id": 416194537,
+        "tag_name": "v0.8.6",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-18T02:39:26Z",
+        "assets": [
+          {
+            "id": 652260585,
+            "download_count": 1
+          },
+          {
+            "id": 652260587,
+            "download_count": 2
+          },
+          {
+            "id": 652260588,
+            "download_count": 2
+          },
+          {
+            "id": 652260595,
+            "download_count": 3
+          }
+        ]
+      },
+      {
+        "id": 412464883,
+        "tag_name": "v0.8.5",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-14T07:55:15Z",
+        "assets": [
+          {
+            "id": 639665257,
+            "download_count": 0
+          },
+          {
+            "id": 639665255,
+            "download_count": 1
+          },
+          {
+            "id": 639665258,
+            "download_count": 1
+          },
+          {
+            "id": 639665256,
+            "download_count": 2
+          }
+        ]
+      },
+      {
+        "id": 411565018,
+        "tag_name": "v0.8.4",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-13T10:44:02Z",
+        "assets": [
+          {
+            "id": 636715353,
+            "download_count": 0
+          },
+          {
+            "id": 636715349,
+            "download_count": 1
+          },
+          {
+            "id": 636715351,
+            "download_count": 1
+          },
+          {
+            "id": 636715347,
+            "download_count": 2
+          }
+        ]
+      },
+      {
+        "id": 411298814,
+        "tag_name": "v0.8.3",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-13T05:08:05Z",
+        "assets": [
+          {
+            "id": 635959092,
+            "download_count": 0
+          },
+          {
+            "id": 635959091,
+            "download_count": 1
+          },
+          {
+            "id": 635959098,
+            "download_count": 1
+          },
+          {
+            "id": 635959093,
+            "download_count": 2
+          }
+        ]
+      },
+      {
+        "id": 410962500,
+        "tag_name": "v0.8.1",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-12T20:10:45Z",
+        "assets": [
+          {
+            "id": 634863627,
+            "download_count": 0
+          },
+          {
+            "id": 634863622,
+            "download_count": 1
+          },
+          {
+            "id": 634863623,
+            "download_count": 1
+          },
+          {
+            "id": 634863624,
+            "download_count": 2
+          }
+        ]
+      },
+      {
+        "id": 410760434,
+        "tag_name": "v0.8.0",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-12T15:31:59Z",
+        "assets": [
+          {
+            "id": 634182857,
+            "download_count": 0
+          },
+          {
+            "id": 634182854,
+            "download_count": 2
+          },
+          {
+            "id": 634182855,
+            "download_count": 1
+          },
+          {
+            "id": 634182853,
+            "download_count": 1
+          }
+        ]
+      },
+      {
+        "id": 410416550,
+        "tag_name": "v0.7.0",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-12T09:13:53Z",
+        "assets": [
+          {
+            "id": 633267444,
+            "download_count": 0
+          },
+          {
+            "id": 633267443,
+            "download_count": 0
+          },
+          {
+            "id": 633267441,
+            "download_count": 0
+          },
+          {
+            "id": 633267446,
+            "download_count": 0
+          }
+        ]
+      },
+      {
+        "id": 409555065,
+        "tag_name": "v0.6.0",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-11T09:02:19Z",
+        "assets": [
+          {
+            "id": 630281226,
+            "download_count": 1
+          },
+          {
+            "id": 630281222,
+            "download_count": 1
+          },
+          {
+            "id": 630281223,
+            "download_count": 1
+          }
+        ]
+      },
+      {
+        "id": 407882711,
+        "tag_name": "v0.5.0",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-10-09T12:15:16Z",
+        "assets": [
+          {
+            "id": 624884033,
+            "download_count": 0
+          },
+          {
+            "id": 624884029,
+            "download_count": 0
+          },
+          {
+            "id": 624884031,
+            "download_count": 0
+          }
+        ]
+      },
+      {
+        "id": 400073504,
+        "tag_name": "v0.4.0",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-09-30T13:27:11Z",
+        "assets": [
+          {
+            "id": 600987963,
+            "download_count": 1
+          },
+          {
+            "id": 600987961,
+            "download_count": 0
+          },
+          {
+            "id": 600987965,
+            "download_count": 2
+          }
+        ]
+      },
+      {
+        "id": 399151625,
+        "tag_name": "v0.3.0",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-09-29T13:00:24Z",
+        "assets": [
+          {
+            "id": 598233348,
+            "download_count": 1
+          },
+          {
+            "id": 598233353,
+            "download_count": 0
+          },
+          {
+            "id": 598233349,
+            "download_count": 0
+          }
+        ]
+      },
+      {
+        "id": 398035296,
+        "tag_name": "v0.2.0",
+        "draft": false,
+        "prerelease": false,
+        "published_at": "2026-09-28T07:39:20Z",
+        "assets": [
+          {
+            "id": 594816499,
+            "download_count": 0
+          },
+          {
+            "id": 594816503,
+            "download_count": 2
+          },
+          {
+            "id": 594816501,
+            "download_count": 1
+          }
+        ]
+      }
+    ]
+  }
+}
