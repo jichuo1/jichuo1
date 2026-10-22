@@ -1,16 +1,16 @@
 {
-  "checked_at": "2026-10-22T13:40:10.022Z",
+  "checked_at": "2026-10-22T14:36:59+00:00",
   "stars": 159,
-  "repos": 7,
+  "repos": 9,
   "forks": 11,
-  "downloads": 3713,
+  "downloads": 3721,
   "projects": [
     {
       "name": "Bilibili_Innocent_Lab",
       "description": "Modular Android runtime exploration.",
       "stars": 131,
       "version": "v1.2.1",
-      "downloads": 3161
+      "downloads": 3169
     },
     {
       "name": "LumenCoacervationEngine",
@@ -37,8 +37,9 @@
   "languages": {
     "Kotlin": 4,
     "Rust": 1,
-    "Java": 1,
-    "Python": 1
+    "Python": 1,
+    "Other": 2,
+    "Java": 1
   },
   "calendar": [
     [
