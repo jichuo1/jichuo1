@@ -7,7 +7,7 @@ on:
       - tests/**
       - .github/workflows/update-profile.yml
   schedule:
-    - cron: '23 */12 * * *'
+    - cron: '23 */6 * * *'
 permissions:
   contents: write
 concurrency:
