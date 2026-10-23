@@ -46,7 +46,7 @@ class TestProfile(unittest.TestCase):
   with tempfile.TemporaryDirectory() as d:
    b.write_all({'x/test':'good'},Path(d));self.assertEqual((Path(d)/'x/test').read_text(),'good')
  def test_no_placeholders(self):self.assertNotIn('Illustrative',str(b.outputs(self.summary())))
-if __name__=='__main__':unittest.main()
+
 
 class TestOriginalDecorations(unittest.TestCase):
     def test_ornaments_safe_and_accessible(self):
@@ -58,3 +58,15 @@ class TestOriginalDecorations(unittest.TestCase):
                     self.assertNotIn('<script', art)
                     self.assertNotIn('href=', art)
                     self.assertIn('@keyframes', art)
+
+class TestDataOrnaments(unittest.TestCase):
+    def test_data_bindings(self):
+        self.assertNotEqual(b.data_ornament('stars',49,0,0),b.data_ornament('stars',50,0,0))
+        self.assertNotEqual(b.data_ornament('repos',8,0,0),b.data_ornament('repos',9,0,0))
+        self.assertIn('toward next 1000',b.data_ornament('downloads',3746,0,0))
+        self.assertEqual(b.calendar_companion([('2026-10-22',0)]),'')
+        self.assertIn('2026-10-21',b.calendar_companion([('2026-10-21',3),('2026-10-22',0)]))
+    def test_deterministic(self):
+        self.assertEqual(b.data_ornament('stars',160,1,2),b.data_ornament('stars',160,1,2))
+
+if __name__=='__main__':unittest.main()

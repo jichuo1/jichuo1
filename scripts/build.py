@@ -129,6 +129,48 @@ def ornaments(kind, dark=False, mobile=False):
     <path d="M-22 45h5m5 0h5m5 0h5m5 0h5m5 0h5" stroke="{paper}" stroke-width="2"/>
     <g class="tap" fill="{paper}" stroke="{ink}" stroke-width="1.5"><ellipse cx="-14" cy="39" rx="7" ry="4"/><ellipse cx="14" cy="39" rx="7" ry="4"/></g></g>'''
 
+def data_ornament(key, value, x, y, dark=False):
+    """Milestone decorations derive only from the successful public snapshot."""
+    ink='#dce6ef' if dark else '#29364b';blue='#75a9ff' if dark else '#3b78d6';paper='#263345' if dark else '#f2f6fc'
+    style='''<style>.bob{animation:bob 4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.pulse{animation:pulse 5s ease-in-out infinite}@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}@media(prefers-reduced-motion:reduce){.bob,.pulse{animation:none}}</style>'''
+    body=''
+    if key=='stars':
+        n=min(5,value//50)
+        for i in range(5):
+            fill='#d8b64c' if i<n else paper
+            body+=f'<path transform="translate({(i-2)*16} 0)" d="M0-6 2-2 6-2 3 1 4 6 0 3-4 6-3 1-6-2-2-2Z" fill="{fill}" stroke="#bca04b" stroke-width=".7"/>'
+        desc=f'{value} public stars; each filled star marks 50, capped at 250'
+    elif key=='repos':
+        n=min(12,value)
+        for i in range(n):
+            xx=(i-(n-1)/2)*7
+            body+=f'<rect x="{xx-2.5}" y="-7" width="5" height="14" rx="1" fill="{blue if i%3 else "#d8b64c"}"/><path d="M{xx-1} -3h2" stroke="{paper}"/>'
+        body+=f'<path d="M-48 9h96" stroke="{ink}" stroke-width="1.2"/>'
+        desc=f'{value} public repositories; one book per repository, up to 12'
+    elif key=='forks':
+        body=f'<path d="M-28 5H0V-5H28M0 5h28" fill="none" stroke="{blue}" stroke-width="1.5"/>'
+        for xx,yy in [(-28,5),(28,-5),(28,5)]:body+=f'<circle class="pulse" cx="{xx}" cy="{yy}" r="3" fill="#d8b64c" stroke="{ink}" stroke-width=".6"/>'
+        desc=f'{value} public forks; decorative branch diagram, not a live event stream'
+    else:
+        width=70*(value%1000)/1000
+        body=f'<path d="M-40 9h70" stroke="{paper}" stroke-width="3"/><path d="M-40 9h{width:.2f}" stroke="{blue}" stroke-width="3"/><g class="bob"><rect x="32" y="-9" width="18" height="15" rx="4" fill="{paper}" stroke="{ink}"/><path d="M41-9v-4" stroke="{ink}"/><circle cx="41" cy="-14" r="2" fill="#d8b64c"/><circle cx="37" cy="-2" r="1" fill="{ink}"/><circle cx="45" cy="-2" r="1" fill="{ink}"/><rect x="22" y="-4" width="10" height="10" rx="1" fill="#d8b64c" stroke="{ink}" stroke-width=".7"/></g>'
+        desc=f'{value} release asset downloads; progress toward next 1000-download milestone; robot motion is decorative'
+    return style+f'<g transform="translate({x} {y})"><title>{esc(desc)}</title>{body}</g>'
+
+def calendar_companion(days, dark=False, mobile=False):
+    active=[i for i,(_,level) in enumerate(days) if level>0]
+    if not active:return ''
+    i=active[-1];date,level=days[i];start=dt.date.fromisoformat(days[0][0]);offset=(start.weekday()+1)%7
+    cols=(offset+len(days)+6)//7;col=(offset+i)//7
+    width=444 if mobile else 864;x=18+width*(col/max(1,cols-1));y=352 if mobile else int(65+7*min(16,864/cols)+46)
+    ink='#dce6ef' if dark else '#29364b';blue='#75a9ff' if dark else '#3b78d6';paper='#263345' if dark else '#f2f6fc'
+    # A small rover points to the latest active week without changing calendar cells.
+    return f'''<style>.bob{{animation:bob 4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}}@keyframes bob{{0%,100%{{transform:translateY(0)}}50%{{transform:translateY(-2px)}}}}@media(prefers-reduced-motion:reduce){{.bob{{animation:none}}}}</style><path d="M18 {y+7}H{18+width}" stroke="{blue}" stroke-opacity=".25" stroke-dasharray="2 5"/>
+    <g transform="translate({min(18+width-16,max(34,x)):.2f} {y})"><title>Rover marks latest active week: {date}, GitHub intensity {level}; not live activity</title><g class="bob"><rect x="-11" y="-11" width="22" height="13" rx="5" fill="{paper}" stroke="{ink}"/><path d="M0-11v-6m-3 0h6" stroke="#d8b64c" stroke-width="1.4"/><circle cx="-4" cy="-5" r="1.5" fill="{blue}"/><circle cx="4" cy="-5" r="1.5" fill="{blue}"/></g><circle cx="-7" cy="4" r="3" fill="{ink}"/><circle cx="7" cy="4" r="3" fill="{ink}"/></g>'''
+
+def language_plane(x,y,language,dark=False):
+    return f'<g transform="translate({x:.2f} {y}) scale(.7)"><title>Paper plane marks largest repository-language segment: {esc(language)}</title><path d="M-13-5 14-10 2 8-1 0Z" fill="#d8b64c" stroke="{"#dce6ef" if dark else "#29364b"}" stroke-width="1" stroke-linejoin="round"/><path d="M-1 0 14-10" stroke="#fff" stroke-width="1"/></g>'
+
 def render(s,dark):
     out={}
     out['header']=svg(128,text(450,63,'Many begin well; few see it through.',25,anchor='middle',extra='font-style="italic"')+'<path d="M414 87H486" stroke="#d8b64c" stroke-width="2"/>',dark,'Many begin well; few see it through.')
@@ -137,7 +179,8 @@ def render(s,dark):
         x=112.5+i*225
         body+=text(x,53,format(s[key],','),42,anchor='middle')+text(x,81,label,cls='label',anchor='middle')
     out['header']=out['header'].replace('</svg>',ornaments('orbit',dark)+'</svg>')
-    out['stats']=svg(112,body,dark,'Public repository statistics; downloads across four featured projects')
+    body+=''.join(data_ornament(k,s[k],112.5+i*225,108,dark) for i,k in enumerate(('stars','repos','forks','downloads')))
+    out['stats']=svg(137,body,dark,'Public repository statistics; downloads across four featured projects')
     out['projects-title']=svg(64,text(18,44,'Projects',30,extra='font-weight="bold"'),dark,'Projects')
     out['projects-title']=out['projects-title'].replace('</svg>',ornaments('cat',dark)+'</svg>')
     for p in s['projects']:
@@ -157,6 +200,7 @@ def render(s,dark):
     for i,(lang,count) in enumerate(languages):
         x=18+(i%4)*216; y=120+(i//4)*30
         body+=f'<rect x="{x}" y="{y-12}" width="12" height="12" fill="{palette.get(lang,"#8598ac")}"/>'+text(x+21,y,f'{lang} {count}',17,'muted')
+    body+=language_plane(18+432*languages[0][1]/total,98,languages[0][0],dark)
     h=162+max(0,(len(languages)-1)//4)*30
     body+=text(18,h-10,'Repos by primary language · includes public forks',13,'muted')
     out['languages']=svg(h,body,dark,'Number of public repositories by primary language, not code volume')
@@ -169,7 +213,8 @@ def render(s,dark):
         body+=f'<rect x="{x:.3f}" y="{y:.3f}" width="{cell:.3f}" height="{cell:.3f}" fill="{colors[level]}"><title>{esc(date)} · GitHub level {level}</title></rect>'
     y=65+7*step+22
     body+=text(18,y,f'{days[0][0]} — {days[-1][0]}',13,'muted')
-    out['contributions']=svg(int(y+18),body,dark,'Actual GitHub public contribution calendar, intensity levels 0 to 4')
+    body+=calendar_companion(days,dark)
+    out['contributions']=svg(int(y+54),body,dark,'Actual GitHub public contribution calendar, intensity levels 0 to 4')
     body=text(18,30,'¹ Release asset downloads across the four featured repositories; not unique users.',12,'muted')
     body+=text(18,52,'Updated '+s['checked_at'].replace('T',' ').replace('+00:00',' UTC').replace('Z',' UTC'),12,'muted')
     out['footnote']=svg(70,body,dark,'Statistics scope and last successful update')
@@ -182,10 +227,11 @@ def mobile_render(s,dark):
     out['header']=wrap(100,text(240,48,'Many begin well; few see it through.',19,anchor='middle',extra='font-style="italic"')+'<path d="M212 68H268" stroke="#d8b64c" stroke-width="2"/>','Motto')
     body=''
     for i,(key,label) in enumerate([('stars','STARS'),('repos','REPOSITORIES'),('forks','FORKS'),('downloads','DOWNLOADS¹')]):
-        x=120+(i%2)*240;y=43+(i//2)*88
+        x=120+(i%2)*240;y=43+(i//2)*110
         body+=text(x,y,format(s[key],','),36,anchor='middle')+text(x,y+25,label,cls='label',anchor='middle')
     out['header']=out['header'].replace('</svg>',ornaments('orbit',dark,True)+'</svg>')
-    out['stats']=wrap(180,body,'Public repository statistics')
+    body+=''.join(data_ornament(k,s[k],120+(i%2)*240,90+(i//2)*110,dark) for i,k in enumerate(('stars','repos','forks','downloads')))
+    out['stats']=wrap(225,body,'Public repository statistics')
     out['projects-title']=wrap(60,text(18,40,'Projects',28,extra='font-weight="bold"'),'Projects')
     out['projects-title']=out['projects-title'].replace('</svg>',ornaments('cat',dark,True)+'</svg>')
     for p in s['projects']:
@@ -198,6 +244,7 @@ def mobile_render(s,dark):
         w=444*n/sum(s['languages'].values());body+=f'<rect x="{x:.3f}" y="60" width="{w:.3f}" height="20" fill="{palette.get(lang,"#8598ac")}"/>';x+=w
     for i,(lang,n) in enumerate(langs):
         x=18+i%2*230;y=107+i//2*26;body+=f'<rect x="{x}" y="{y-12}" width="12" height="12" fill="{palette.get(lang,"#8598ac")}"/>'+text(x+20,y,f'{lang} {n}',16,'muted')
+    body+=language_plane(18+222*langs[0][1]/sum(s['languages'].values()),88,langs[0][0],dark)
     h=142+((len(langs)-1)//2)*26
     body+=text(18,h-10,'Primary language per public repo; includes forks.',12,'muted')
     out['languages']=wrap(h,body,'Repository primary languages')
@@ -208,7 +255,8 @@ def mobile_render(s,dark):
         col,row=divmod(i+offset,7);panel,col=divmod(col,27);x=18+col*16.4;y=62+panel*143+row*16.4
         body+=f'<rect x="{x:.2f}" y="{y:.2f}" width="13.4" height="13.4" fill="{colors[level]}"><title>{esc(date)} · GitHub level {level}</title></rect>'
     body+=text(18,334,days[0][0]+' — '+days[-1][0],13,'muted')
-    out['contributions']=wrap(355,body,'Actual contribution calendar; chronological rows of 27 weeks')
+    body+=calendar_companion(days,dark,True)
+    out['contributions']=wrap(378,body,'Actual contribution calendar; chronological rows of 27 weeks')
     body=text(18,25,'¹ Downloads: four featured repos; not unique users.',12,'muted')+text(18,47,'Updated '+s['checked_at'][:19].replace('T',' ')+' UTC',12,'muted')
     out['footnote']=wrap(65,body,'Statistics scope and update time')
     return out
