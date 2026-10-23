@@ -93,8 +93,8 @@ class TestNaturalMotion(unittest.TestCase):
 class TestGustPoster(unittest.TestCase):
     def test_shared_clock_and_reduced_motion(self):
         source=Path(b.__file__).read_text()
-        self.assertIn('paper-gust 7.1s',source)
-        self.assertIn('paper-flutter 2.31s',source)
+        self.assertIn('.poster-sheet{animation:none;',source)
+        self.assertIn('.poster-flutter{animation:none;',source)
         self.assertIn('.poster-sheet,.poster-flutter,.poster-curl,.paper-shadow{animation:none}',source)
     def test_detailed_scene_geometry(self):
         for name in b.FEATURED:
