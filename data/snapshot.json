@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-23T08:21:48+00:00",
+  "checked_at": "2026-10-23T08:46:07+00:00",
   "stars": 160,
   "repos": 9,
   "forks": 11,
@@ -16,7 +16,7 @@
       "name": "LumenCoacervationEngine",
       "description": "Materials and motion for Android View.",
       "stars": 5,
-      "version": "1.5.1",
+      "version": "1.5.2",
       "downloads": 303
     },
     {

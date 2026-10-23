@@ -1,3 +1,4 @@
+<p align="right"><a href="https://paper-observatory.airymink6.chatgpt.site" title="探索互动纸张"><img src="assets/portal.svg" width="40" height="34" alt="探索互动主页"></a></p>
 <a href="https://github.com/jichuo1?tab=overview">
 <picture>
   <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/poster-mobile-dark.svg">
