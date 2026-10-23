@@ -86,13 +86,37 @@ def summarize(source, days):
 
 def esc(x): return html.escape(str(x), quote=True)
 
+def paper_layer(height,dark,title):
+    paper='#191c24' if dark else '#fbf6e9';edge='#090c12' if dark else '#c4ad83';fold='#343641' if dark else '#e7d7b5'
+    grain=''.join(f'<circle cx="{(i*137+31)%900}" cy="{(i*43+7)%height}" r=".55" fill="{edge}" opacity=".16"/>' for i in range(max(12,height//3)))
+    base=f'<rect width="900" height="{height}" fill="{paper}"/>{grain}<path d="M1 0V{height}M899 0V{height}" stroke="{edge}" opacity=".24"/>'
+    return base
+
 def svg(height, body, dark=False, title='Profile statistics'):
-    bg,ink,muted,line=('#0d1117','#f0eee8','#a8b4c4','#30363d') if dark else ('#ffffff','#16191c','#626d80','#e4e7eb')
+    bg,ink,muted,line=('#191c24','#f0eee8','#a8b4c4','#383945') if dark else ('#fbf6e9','#293040','#686d78','#e4daca')
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="{height}" viewBox="0 0 900 {height}" role="img" aria-label="{esc(title)}">
-<title>{esc(title)}</title><style>text{{fill:{ink};font-family:Georgia,'Times New Roman',serif}}.muted{{fill:{muted}}}.label{{font:12px monospace;letter-spacing:1.2px;fill:{muted}}}.rule{{stroke:{line}}}</style><rect width="900" height="{height}" fill="{bg}"/>{body}</svg>'''
+<title>{esc(title)}</title><style>text{{fill:{ink};font-family:Georgia,'Times New Roman',serif}}.pixel-type{{fill:{ink}}}.muted{{fill:{muted};font-family:monospace}}.label{{font:12px monospace;letter-spacing:1.2px;fill:{muted}}}.rule{{stroke:{line}}}</style>{paper_layer(height,dark,title)}{body}</svg>'''
+
+
+PIXEL_GLYPHS = dict(zip('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._/', [
+'01110/10001/10001/11111/10001/10001/10001','11110/10001/10001/11110/10001/10001/11110','01111/10000/10000/10000/10000/10000/01111','11110/10001/10001/10001/10001/10001/11110','11111/10000/10000/11110/10000/10000/11111','11111/10000/10000/11110/10000/10000/10000','01111/10000/10000/10111/10001/10001/01111','10001/10001/10001/11111/10001/10001/10001','11111/00100/00100/00100/00100/00100/11111','00111/00010/00010/00010/10010/10010/01100','10001/10010/10100/11000/10100/10010/10001','10000/10000/10000/10000/10000/10000/11111','10001/11011/10101/10101/10001/10001/10001','10001/11001/10101/10011/10001/10001/10001','01110/10001/10001/10001/10001/10001/01110','11110/10001/10001/11110/10000/10000/10000','01110/10001/10001/10001/10101/10010/01101','11110/10001/10001/11110/10100/10010/10001','01111/10000/10000/01110/00001/00001/11110','11111/00100/00100/00100/00100/00100/00100','10001/10001/10001/10001/10001/10001/01110','10001/10001/10001/10001/10001/01010/00100','10001/10001/10001/10101/10101/10101/01010','10001/10001/01010/00100/01010/10001/10001','10001/10001/01010/00100/00100/00100/00100','11111/00001/00010/00100/01000/10000/11111',
+'01110/10001/10011/10101/11001/10001/01110','00100/01100/00100/00100/00100/00100/01110','01110/10001/00001/00010/00100/01000/11111','11110/00001/00001/01110/00001/00001/11110','00010/00110/01010/10010/11111/00010/00010','11111/10000/10000/11110/00001/00001/11110','01110/10000/10000/11110/10001/10001/01110','11111/00001/00010/00100/01000/01000/01000','01110/10001/10001/01110/10001/10001/01110','01110/10001/10001/01111/00001/00001/01110','00000/00000/00000/11111/00000/00000/00000','00000/00000/00000/00000/00000/00110/00110','00000/00000/00000/00000/00000/00000/11111','00001/00001/00010/00100/01000/10000/10000']))
 
 def text(x,y,s,size=20,cls='',anchor='start',extra=''):
-    return f'<text x="{x}" y="{y}" font-size="{size}" class="{cls}" text-anchor="{anchor}" {extra}>{esc(s)}</text>'
+    value=str(s)
+    if 'font-style="italic"' not in extra and cls not in ('muted','label'):
+        # Original 5x7 vector lettering, independent of installed fonts and remote font requests.
+        unit=size/10; advance=6*unit; width=max(0,len(value)*advance-unit)
+        left=x-(width/2 if anchor=='middle' else width if anchor=='end' else 0)
+        cells=[]
+        for i,c in enumerate(value.upper()):
+            if c==',': glyph='00000/00000/00000/00000/00110/00100/01000'
+            else: glyph=PIXEL_GLYPHS.get(c,'00000/'*6+'00000')
+            for row,bits in enumerate(glyph.split('/')):
+                for col,on in enumerate(bits):
+                    if on=='1': cells.append(f'M{i*6+col} {row}h.92v.92h-.92Z')
+        return f'<g class="pixel-type" aria-label="{esc(value)}" transform="translate({left:.3f} {y-7*unit:.3f}) scale({unit:.3f})"><title>{esc(value)}</title><path d="{"".join(cells)}"/></g>'
+    return f'<text x="{x}" y="{y}" font-size="{size if cls!="muted" else size*.84}" class="{cls}" text-anchor="{anchor}" {extra}>{esc(s)}</text>'
 
 def ornaments(kind, dark=False, mobile=False):
     """Original vector miniatures; no third-party artwork or external requests."""
@@ -175,15 +199,27 @@ def project_scene(name,stars,maximum,dark=False,mobile=False):
     """Original project identity scenes; interest meter measures cumulative Stars only."""
     ink='#dce6ef' if dark else '#29364b';paper='#263345' if dark else '#f2f6fc';blue='#75a9ff' if dark else '#3b78d6';yellow='#d8b64c'
     x,y,scale=(265,83,.48) if mobile else (558,42,.85)
-    style='''<style>.sway{animation:sway 6s ease-in-out infinite;transform-box:fill-box;transform-origin:bottom center}.glow{animation:glow 4s ease-in-out infinite}@keyframes sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}@keyframes glow{0%,100%{opacity:.5}50%{opacity:1}}@media(prefers-reduced-motion:reduce){.sway,.glow{animation:none}}</style>'''
+    style='''<style>
+.robot-hop{animation:robot-hop 5s ease-in-out infinite}.star-loop{animation:star-loop 5s ease-in-out infinite}.fly-a{animation:fly-a 4.8s ease-in-out infinite}.fly-b{animation:fly-b 6.3s ease-in-out infinite}.fly-c{animation:fly-c 5.6s ease-in-out infinite}.sun-arc{animation:sun-arc 10s linear infinite;transform:rotate(90deg)}.leaf-sway{animation:leaf-sway 5s ease-in-out infinite;transform-origin:-12px 18px}.coin-flight{animation:coin-flight 5s infinite}.glow{animation:glow 4s ease-in-out infinite}
+@keyframes robot-hop{0%,100%{transform:translate(-4px,0) rotate(-4deg)}25%{transform:translate(5px,-9px) rotate(6deg)}45%,55%{transform:translate(12px,0) rotate(4deg)}75%{transform:translate(2px,-6px) rotate(-6deg)}}
+@keyframes star-loop{0%,100%{transform:translate(-3px,-4px) rotate(-10deg)}35%{transform:translate(7px,-12px) rotate(15deg)}65%{transform:translate(2px,5px) rotate(-5deg)}}
+@keyframes fly-a{0%,100%{transform:translate(0,0)}30%{transform:translate(-12px,-3px)}65%{transform:translate(-4px,13px)}}
+@keyframes fly-b{0%,100%{transform:translate(0,0)}40%{transform:translate(11px,-13px)}75%{transform:translate(-6px,-7px)}}
+@keyframes fly-c{0%,100%{transform:translate(0,0)}30%{transform:translate(9px,-12px)}65%{transform:translate(-7px,16px)}}
+@keyframes sun-arc{0%{transform:rotate(0deg);opacity:0}8%{opacity:1}84%{opacity:1}92%{transform:rotate(180deg);opacity:0}100%{transform:rotate(180deg);opacity:0}}
+@keyframes leaf-sway{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(9deg)}}
+@keyframes coin-flight{0%,8%{transform:translate(-28px,-7px) scaleX(.7);opacity:0}15%{opacity:1}38%{transform:translate(-14px,-30px) scaleX(.35)}65%{transform:translate(0,0) scaleX(1)}77%{transform:translate(0,-6px)}88%{transform:translate(0,0);opacity:1}100%{transform:translate(0,0);opacity:0}}
+@keyframes glow{0%,100%{opacity:.55}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.robot-hop,.star-loop,.fly-a,.fly-b,.fly-c,.sun-arc,.leaf-sway,.coin-flight,.glow{animation:none}}
+</style>'''
     if name=='Bilibili_Innocent_Lab':
-        scene=f'<path d="M-33 20H34" stroke="{ink}" stroke-opacity=".25"/><g class="sway"><rect x="-28" y="-15" width="38" height="30" rx="9" fill="{paper}" stroke="{ink}" stroke-width="1.7"/><path d="M-20-15l-5-9m27 9 5-9" stroke="{ink}" stroke-width="2" stroke-linecap="round"/><path d="M-19-2v6m17-6v6M-14 9h8" stroke="{blue}" stroke-width="2" stroke-linecap="round"/><path d="M-20 15v5m21-5v5" stroke="{ink}" stroke-width="3"/></g><path class="glow" d="M28-18l3 8 9 1-7 5 2 9-7-5-7 5 2-9-7-5 9-1Z" fill="{yellow}" stroke="{ink}" stroke-width="1"/>'
+        scene=f'<path d="M-33 20H34" stroke="{ink}" stroke-opacity=".25"/><g class="robot-hop"><rect x="-28" y="-15" width="38" height="30" rx="9" fill="{paper}" stroke="{ink}" stroke-width="1.7"/><path d="M-20-15l-5-9m27 9 5-9" stroke="{ink}" stroke-width="2" stroke-linecap="round"/><path d="M-19-2v6m17-6v6M-14 9h8" stroke="{blue}" stroke-width="2" stroke-linecap="round"/><path d="M-20 15v5m21-5v5" stroke="{ink}" stroke-width="3"/></g><path class="star-loop" d="M28-18l3 8 9 1-7 5 2 9-7-5-7 5 2-9-7-5 9-1Z" fill="{yellow}" stroke="{ink}" stroke-width="1"/>'
     elif name=='LumenCoacervationEngine':
-        scene=f'<ellipse cx="0" cy="22" rx="30" ry="3" fill="{blue}" opacity=".1"/><path d="M-16-19h32v9l5 6v22q0 5-6 5h-30q-6 0-6-5V-4l5-6Z" fill="{paper}" stroke="{ink}" stroke-width="1.5"/><rect x="-18" y="-24" width="36" height="6" rx="2" fill="{yellow}"/><path d="M-14-4v17" stroke="{blue}" stroke-opacity=".45" stroke-width="3" stroke-linecap="round"/><g class="glow" fill="{yellow}"><circle cx="5" cy="-2" r="4"/><circle cx="-3" cy="12" r="3"/><circle cx="29" cy="-15" r="3"/></g><path d="M25-19l-3-3m11 1 3-3" stroke="{blue}" stroke-linecap="round"/>'
+        scene=f'<ellipse cx="0" cy="22" rx="30" ry="3" fill="{blue}" opacity=".1"/><path d="M-16-19h32v9l5 6v22q0 5-6 5h-30q-6 0-6-5V-4l5-6Z" fill="{paper}" stroke="{ink}" stroke-width="1.5"/><rect x="-18" y="-24" width="36" height="6" rx="2" fill="{yellow}"/><path d="M-14-4v17" stroke="{blue}" stroke-opacity=".45" stroke-width="3" stroke-linecap="round"/><g class="glow" fill="{yellow}"><circle class="fly-a" cx="5" cy="-2" r="4"/><circle class="fly-b" cx="-3" cy="12" r="3"/><circle class="fly-c" cx="29" cy="-15" r="3"/></g><path d="M25-19l-3-3m11 1 3-3" stroke="{blue}" stroke-linecap="round"/>'
     elif name=='SplashScreenAdvanced':
-        scene=f'<path d="M-35 18q35-9 70 0" fill="none" stroke="{blue}" stroke-opacity=".4"/><circle cx="17" cy="-11" r="12" fill="{yellow}"/><path class="glow" d="M17-29v-4m21 22h5m-41-15-3-3m37 5 3-3" stroke="{yellow}" stroke-width="2" stroke-linecap="round"/><path d="M-12 18V-5" stroke="{ink}" stroke-width="2"/><path class="sway" d="M-12 4q-20-2-17-16 17 0 17 16q18-4 18-17-16 0-18 17" fill="{paper}" stroke="{blue}" stroke-width="1.5"/>'
+        scene=f'<path d="M-35 18q35-9 70 0" fill="none" stroke="{blue}" stroke-opacity=".4"/><g transform="translate(0 13)"><g class="sun-arc"><circle cx="-27" cy="0" r="9" fill="{yellow}"/><path d="M-27-13v-3m0 29v3m-13-16h-3m29 0h3" stroke="{yellow}" stroke-width="1.5"/></g></g><path d="M-12 18V-5" stroke="{ink}" stroke-width="2"/><path class="leaf-sway" d="M-12 4q-20-2-17-16 17 0 17 16q18-4 18-17-16 0-18 17" fill="{paper}" stroke="{blue}" stroke-width="1.5"/>'
     else:
-        scene=f'<rect x="-29" y="-20" width="58" height="36" rx="6" fill="{paper}" stroke="{ink}" stroke-width="1.6"/><path d="M-18-8l6 5-6 5m12 0h12" fill="none" stroke="{blue}" stroke-width="2" stroke-linecap="round"/><path class="glow" d="M12 3h5" stroke="{yellow}" stroke-width="2"/><path d="M-7 16v7m14-7v7M-17 23h34" stroke="{ink}" stroke-width="1.5"/><circle cx="38" cy="9" r="7" fill="{yellow}"/><path d="M38 5v8m-2-6h4m-4 4h4" stroke="{ink}" stroke-width="1"/>'
+        scene=f'<rect x="-29" y="-20" width="58" height="36" rx="6" fill="{paper}" stroke="{ink}" stroke-width="1.6"/><path d="M-18-8l6 5-6 5m12 0h12" fill="none" stroke="{blue}" stroke-width="2" stroke-linecap="round"/><path class="glow" d="M12 3h5" stroke="{yellow}" stroke-width="2"/><path d="M-7 16v7m14-7v7M-17 23h34" stroke="{ink}" stroke-width="1.5"/><g class="coin-flight"><circle cx="38" cy="9" r="7" fill="{yellow}"/><path d="M38 5v8m-2-6h4m-4 4h4" stroke="{ink}" stroke-width="1"/></g>'
     ratio=stars/maximum if maximum else 0
     meterx,metery,width=(407,98,50) if mobile else (792,70,60)
     meter=f'<g><title>Cumulative public Stars: {stars}; relative to most-starred featured project ({maximum}), not recent traffic or trend</title><rect x="{meterx}" y="{metery}" width="{width}" height="3" rx="1.5" fill="{paper}"/><rect x="{meterx}" y="{metery}" width="{width*ratio:.3f}" height="3" rx="1.5" fill="{yellow}"/></g>'
@@ -293,7 +329,26 @@ def outputs(s):
     parts=[picture('header','Many begin well; few see it through.'),picture('stats','Public repository statistics'),picture('projects-title','Projects')]
     parts += [picture('project-'+p['name'],p['name']+' — '+p['description'],f'https://github.com/{OWNER}/{p["name"]}') for p in s['projects']]
     parts += [picture('languages','Repository count by primary language'),picture('contributions','GitHub contribution calendar',f'https://github.com/{OWNER}?tab=overview'),picture('footnote','Statistics scope and update time')]
-    out['README.md']='\n\n'.join(parts)+'\n'
+    order=['header','stats','projects-title']+['project-'+p['name'] for p in s['projects']]+['languages','contributions','footnote']
+    for dark in (False,True):
+        for mobile in (False,True):
+            theme='dark' if dark else 'light';suffix=('-mobile' if mobile else '')+'-'+theme
+            width=480 if mobile else 900;y=0;panels=[]
+            for name in order:
+                panel=out[f'assets/{name}{suffix}.svg']
+                h=int(re.search(r'height="(\d+)"',panel).group(1))
+                panel=panel.replace('<svg ',f'<svg x="0" y="{y}" ',1)
+                panels.append(panel);y+=h
+            wall='#0d1117' if dark else '#f1eee7';curl='#363946' if dark else '#e4d3af';ink='#05070a' if dark else '#8b7753'
+            # One SVG clock moves the entire sheet, keeping typography and all sections aligned.
+            css='<style>.poster-sheet{animation:paper-breeze 12s ease-in-out infinite;transform-origin:20% 2%}.poster-curl{animation:curl-breeze 12s ease-in-out infinite;transform-box:fill-box;transform-origin:bottom right}.paper-shadow{animation:shadow-breeze 12s ease-in-out infinite}@keyframes paper-breeze{0%,100%{transform:translate(0,0) skewY(0deg)}35%{transform:translate(-2px,-2px) skewY(-.22deg)}58%{transform:translate(1px,-1px) skewY(.1deg)}76%{transform:translate(0,0) skewY(-.06deg)}}@keyframes curl-breeze{0%,100%{transform:scale(1)}35%{transform:scale(1.65,1.4)}58%{transform:scale(1.18,1.12)}76%{transform:scale(1.35,1.2)}}@keyframes shadow-breeze{0%,100%{opacity:.12}35%{opacity:.23}58%{opacity:.15}}@media(prefers-reduced-motion:reduce){.poster-sheet,.poster-curl,.paper-shadow{animation:none}}</style>'
+            pad=14;w=width+pad*2;h=y+pad*2
+            shadow=f'<rect class="paper-shadow" x="{pad+4}" y="{pad+6}" width="{width}" height="{y}" rx="2" fill="{ink}" opacity=".12"/>'
+            corner=f'<g class="poster-curl"><path d="M{width-34} {y}Q{width-12} {y-8} {width} {y-36}L{width} {y}Z" fill="{wall}"/><path d="M{width-34} {y}Q{width-13} {y-10} {width} {y-36}Q{width-24} {y-30} {width-34} {y}Z" fill="{curl}" stroke="{ink}" stroke-opacity=".2"/></g>'
+            out[f'assets/poster{suffix}.svg']=f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-label="Animated project statistics poster"><title>Public project statistics, updated every six hours</title>{css}<rect width="{w}" height="{h}" fill="{wall}"/>{shadow}<g transform="translate({pad} {pad})"><g class="poster-sheet">'+''.join(panels)+corner+'</g></g></svg>'
+    links=' · '.join(f'<a href="https://github.com/{OWNER}/{p["name"]}">{p["name"]}</a>' for p in s['projects'])
+    out['README.md']=picture('poster','Animated public project statistics poster',f'https://github.com/{OWNER}?tab=overview')+'\n\n<p align="center">'+links+'</p>\n'
+
     out['data/snapshot.json']=json.dumps(s,ensure_ascii=False,indent=2)+'\n'
     return out
 

@@ -79,4 +79,15 @@ class TestProjectScenes(unittest.TestCase):
         self.assertIn('width="30.000"',b.project_scene('LumenCoacervationEngine',5,10))
         self.assertIn('prefers-reduced-motion',b.project_scene('SplashScreenAdvanced',23,132))
 
+class TestNaturalMotion(unittest.TestCase):
+    def test_sun_arc(self):
+        art=b.project_scene('SplashScreenAdvanced',23,132)
+        self.assertIn('rotate(180deg)',art)
+        self.assertIn('class="sun-arc"',art)
+        self.assertIn('animation:none',art)
+    def test_vector_letters_and_motto(self):
+        self.assertIn('pixel-type',b.text(0,30,'Projects'))
+        self.assertIn('<text',b.text(0,30,'Many begin well;',extra='font-style="italic"'))
+        self.assertIn('aria-label="160"',b.text(0,30,160))
+
 if __name__=='__main__':unittest.main()
