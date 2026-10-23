@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-10-23T08:46:07+00:00",
+  "checked_at": "2026-10-23T09:01:03+00:00",
   "stars": 160,
   "repos": 9,
   "forks": 11,
-  "downloads": 3755,
+  "downloads": 3789,
   "projects": [
     {
       "name": "Bilibili_Innocent_Lab",
@@ -17,7 +17,7 @@
       "description": "Materials and motion for Android View.",
       "stars": 5,
       "version": "1.5.2",
-      "downloads": 303
+      "downloads": 337
     },
     {
       "name": "SplashScreenAdvanced",
