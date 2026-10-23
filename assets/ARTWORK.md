@@ -14,3 +14,7 @@ Animation is self-contained CSS inside SVG image assets, with a static fallback 
 - The contribution rover marks the latest active calendar week. It does not claim current online activity or alter any contribution intensity cells.
 
 All positions and counts derive from the last successful snapshot; original numbers remain unchanged. Reduced-motion preferences stop all CSS animation.
+
+## Project scenes and relative interest
+
+Each featured project has an original miniature: an Android-like research robot, a firefly light jar, a sunrise sprout, or a token terminal. Scene choice expresses subject matter, not popularity. The slim bar beneath each Stars label equals that project's cumulative public Stars divided by the maximum among featured projects. Zero remains empty; an all-zero group remains empty. This is not traffic, recent growth, activity, or a verified trend. The scenes do not cover the text or change the repository link targets.

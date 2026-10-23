@@ -171,6 +171,24 @@ def calendar_companion(days, dark=False, mobile=False):
 def language_plane(x,y,language,dark=False):
     return f'<g transform="translate({x:.2f} {y}) scale(.7)"><title>Paper plane marks largest repository-language segment: {esc(language)}</title><path d="M-13-5 14-10 2 8-1 0Z" fill="#d8b64c" stroke="{"#dce6ef" if dark else "#29364b"}" stroke-width="1" stroke-linejoin="round"/><path d="M-1 0 14-10" stroke="#fff" stroke-width="1"/></g>'
 
+def project_scene(name,stars,maximum,dark=False,mobile=False):
+    """Original project identity scenes; interest meter measures cumulative Stars only."""
+    ink='#dce6ef' if dark else '#29364b';paper='#263345' if dark else '#f2f6fc';blue='#75a9ff' if dark else '#3b78d6';yellow='#d8b64c'
+    x,y,scale=(265,83,.48) if mobile else (558,42,.85)
+    style='''<style>.sway{animation:sway 6s ease-in-out infinite;transform-box:fill-box;transform-origin:bottom center}.glow{animation:glow 4s ease-in-out infinite}@keyframes sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}@keyframes glow{0%,100%{opacity:.5}50%{opacity:1}}@media(prefers-reduced-motion:reduce){.sway,.glow{animation:none}}</style>'''
+    if name=='Bilibili_Innocent_Lab':
+        scene=f'<path d="M-33 20H34" stroke="{ink}" stroke-opacity=".25"/><g class="sway"><rect x="-28" y="-15" width="38" height="30" rx="9" fill="{paper}" stroke="{ink}" stroke-width="1.7"/><path d="M-20-15l-5-9m27 9 5-9" stroke="{ink}" stroke-width="2" stroke-linecap="round"/><path d="M-19-2v6m17-6v6M-14 9h8" stroke="{blue}" stroke-width="2" stroke-linecap="round"/><path d="M-20 15v5m21-5v5" stroke="{ink}" stroke-width="3"/></g><path class="glow" d="M28-18l3 8 9 1-7 5 2 9-7-5-7 5 2-9-7-5 9-1Z" fill="{yellow}" stroke="{ink}" stroke-width="1"/>'
+    elif name=='LumenCoacervationEngine':
+        scene=f'<ellipse cx="0" cy="22" rx="30" ry="3" fill="{blue}" opacity=".1"/><path d="M-16-19h32v9l5 6v22q0 5-6 5h-30q-6 0-6-5V-4l5-6Z" fill="{paper}" stroke="{ink}" stroke-width="1.5"/><rect x="-18" y="-24" width="36" height="6" rx="2" fill="{yellow}"/><path d="M-14-4v17" stroke="{blue}" stroke-opacity=".45" stroke-width="3" stroke-linecap="round"/><g class="glow" fill="{yellow}"><circle cx="5" cy="-2" r="4"/><circle cx="-3" cy="12" r="3"/><circle cx="29" cy="-15" r="3"/></g><path d="M25-19l-3-3m11 1 3-3" stroke="{blue}" stroke-linecap="round"/>'
+    elif name=='SplashScreenAdvanced':
+        scene=f'<path d="M-35 18q35-9 70 0" fill="none" stroke="{blue}" stroke-opacity=".4"/><circle cx="17" cy="-11" r="12" fill="{yellow}"/><path class="glow" d="M17-29v-4m21 22h5m-41-15-3-3m37 5 3-3" stroke="{yellow}" stroke-width="2" stroke-linecap="round"/><path d="M-12 18V-5" stroke="{ink}" stroke-width="2"/><path class="sway" d="M-12 4q-20-2-17-16 17 0 17 16q18-4 18-17-16 0-18 17" fill="{paper}" stroke="{blue}" stroke-width="1.5"/>'
+    else:
+        scene=f'<rect x="-29" y="-20" width="58" height="36" rx="6" fill="{paper}" stroke="{ink}" stroke-width="1.6"/><path d="M-18-8l6 5-6 5m12 0h12" fill="none" stroke="{blue}" stroke-width="2" stroke-linecap="round"/><path class="glow" d="M12 3h5" stroke="{yellow}" stroke-width="2"/><path d="M-7 16v7m14-7v7M-17 23h34" stroke="{ink}" stroke-width="1.5"/><circle cx="38" cy="9" r="7" fill="{yellow}"/><path d="M38 5v8m-2-6h4m-4 4h4" stroke="{ink}" stroke-width="1"/>'
+    ratio=stars/maximum if maximum else 0
+    meterx,metery,width=(407,98,50) if mobile else (792,70,60)
+    meter=f'<g><title>Cumulative public Stars: {stars}; relative to most-starred featured project ({maximum}), not recent traffic or trend</title><rect x="{meterx}" y="{metery}" width="{width}" height="3" rx="1.5" fill="{paper}"/><rect x="{meterx}" y="{metery}" width="{width*ratio:.3f}" height="3" rx="1.5" fill="{yellow}"/></g>'
+    return style+f'<g transform="translate({x} {y}) scale({scale})"><title>Original decorative scene for {esc(name)}</title>{scene}</g>'+meter
+
 def render(s,dark):
     out={}
     out['header']=svg(128,text(450,63,'Many begin well; few see it through.',25,anchor='middle',extra='font-style="italic"')+'<path d="M414 87H486" stroke="#d8b64c" stroke-width="2"/>',dark,'Many begin well; few see it through.')
@@ -188,6 +206,7 @@ def render(s,dark):
         size=26 if len(p['name'])<25 else 24
         body=text(18,34,p['name'],size,extra='font-weight="bold"')+text(18,62,p['description'],18,'muted')
         body+=text(710,38,p['version'],19,anchor='end')+text(822,35,p['stars'],25,anchor='middle')+text(822,59,'stars',15,'muted',anchor='middle')
+        body+=project_scene(p['name'],p['stars'],max(q['stars'] for q in s['projects']),dark)
         body+='<path d="M18 88H882" class="rule"/>'
         out['project-'+p['name']]=svg(94,body,dark,p['name']+'; '+p['version']+'; '+str(p['stars'])+' stars')
     palette={'Kotlin':'#2367ee','Rust':'#566573','Java':'#9aa4b1','Python':'#d8b64c','Other':'#bcbfc5'}
@@ -237,6 +256,7 @@ def mobile_render(s,dark):
     for p in s['projects']:
         body=text(18,31,p['name'],23,extra='font-weight="bold"')+text(18,58,p['description'],16,'muted')
         body+=text(18,87,p['version'],16,'muted')+text(460,87,str(p['stars'])+' stars',16,'muted','end')+'<path d="M18 106H462" class="rule"/>'
+        body+=project_scene(p['name'],p['stars'],max(q['stars'] for q in s['projects']),dark,True)
         out['project-'+p['name']]=wrap(112,body,p['name'])
     palette={'Kotlin':'#2367ee','Rust':'#566573','Java':'#9aa4b1','Python':'#d8b64c','Other':'#bcbfc5'}
     langs=sorted(s['languages'].items(),key=lambda x:(-x[1],{'Kotlin':0,'Rust':1,'Java':2,'Python':3}.get(x[0],99),x[0]));body=text(18,40,'Repository languages',28,extra='font-weight="bold"');x=18

@@ -69,4 +69,14 @@ class TestDataOrnaments(unittest.TestCase):
     def test_deterministic(self):
         self.assertEqual(b.data_ornament('stars',160,1,2),b.data_ornament('stars',160,1,2))
 
+
+
+class TestProjectScenes(unittest.TestCase):
+    def test_zero_interest(self):
+        self.assertIn('width="0.000"',b.project_scene('GlobalTokenTracker',0,132))
+        self.assertIn('not recent traffic or trend',b.project_scene('GlobalTokenTracker',0,0))
+    def test_proportional_interest(self):
+        self.assertIn('width="30.000"',b.project_scene('LumenCoacervationEngine',5,10))
+        self.assertIn('prefers-reduced-motion',b.project_scene('SplashScreenAdvanced',23,132))
+
 if __name__=='__main__':unittest.main()
