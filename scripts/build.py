@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Public-only GitHub profile. Standard library; no persistent credentials."""
+import xml.etree.ElementTree as ET
 import argparse, hashlib, collections, datetime as dt, html, json, os, re, sys, tempfile
 from pathlib import Path
 from html.parser import HTMLParser
@@ -333,6 +334,32 @@ def picture(name,alt,url=None):
     p=f'<picture>\n  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/{name}-mobile-dark.svg">\n  <source media="(max-width: 600px)" srcset="assets/{name}-mobile-light.svg">\n  <source media="(prefers-color-scheme: dark)" srcset="assets/{name}-dark.svg">\n  <img alt="{esc(alt)}" src="assets/{name}-light.svg" width="900">\n</picture>'
     return (f'<a href="{esc(url)}">\n{p}\n</a>' if url else p)
 
+def entrance_pass(content,kind):
+    """One-shot entrance wrappers keep ongoing animation transforms independent."""
+    ns='http://www.w3.org/2000/svg';ET.register_namespace('',ns);root=ET.fromstring(content)
+    style=ET.Element('{'+ns+'}style')
+    style.text='@keyframes enter-rise{0%{opacity:0;transform:translateY(10px) scale(.9)}72%{opacity:1;transform:translateY(-1.4px) scale(1.015)}100%{opacity:1;transform:translateY(0) scale(1)}}@keyframes enter-land{0%{opacity:0;transform:translateY(-15px) rotate(-8deg)}65%{opacity:1;transform:translateY(2px) rotate(2deg)}84%{transform:translateY(-1px) rotate(-1deg)}100%{opacity:1;transform:translateY(0) rotate(0deg)}}@keyframes enter-fly{0%{opacity:0;transform:translate(-20px,8px) rotate(-15deg)}76%{opacity:1;transform:translate(2px,-1px) rotate(2deg)}100%{opacity:1;transform:translate(0,0) rotate(0deg)}}@keyframes enter-grow{0%{opacity:0;transform:scaleX(0)}100%{opacity:1;transform:scaleX(1)}}@keyframes enter-cell{0%{opacity:0;transform:scale(.2)}75%{opacity:1;transform:scale(1.08)}100%{opacity:1;transform:scale(1)}}@media(prefers-reduced-motion:reduce){.entrance{animation:none!important;opacity:1!important}}'
+    root.insert(1,style);count=0
+    for element in list(root):
+        tag=element.tag.rsplit('}',1)[-1];effect=None;delay=.15
+        if tag=='g' and 'aria-label' not in element.attrib and 'pixel-type' not in element.get('class',''):
+            title=''.join(element.itertext())
+            effect='enter-rise'
+            if 'Bilibili' in title or 'plane' in title:effect='enter-fly'
+            elif 'Lumen' in title or kind=='projects-title':effect='enter-land'
+            elif 'Cumulative public Stars' in title:effect='enter-grow'
+            elif kind=='header':effect='enter-fly'
+            delay=.25+(count%5)*.12
+        elif tag=='rect' and element.get('x') is not None and element.get('width')!='900':
+            effect='enter-cell' if kind=='contributions' else 'enter-grow'
+            delay=.3+float(element.get('x','0'))*.0014+(float(element.get('y','0'))%29)*.008
+        elif tag=='path' and element.get('class')=='rule':effect='enter-grow';delay=.4
+        if effect:
+            index=list(root).index(element);root.remove(element)
+            wrap=ET.Element('{'+ns+'}g',{'class':'entrance','style':f'transform-box:fill-box;transform-origin:{"left center" if effect=="enter-grow" else "center"};animation:{effect} {1.0+(count%3)*.12:.2f}s cubic-bezier(.18,.7,.3,1) {delay:.3f}s 1 both'})
+            wrap.append(element);root.insert(index,wrap);count+=1
+    return ET.tostring(root,encoding='unicode')
+
 def outputs(s):
     out={}
     for dark in (False,True):
@@ -347,7 +374,7 @@ def outputs(s):
             theme='dark' if dark else 'light';suffix=('-mobile' if mobile else '')+'-'+theme
             width=480 if mobile else 900;y=0;panels=[]
             for name in order:
-                panel=out[f'assets/{name}{suffix}.svg']
+                panel=entrance_pass(out[f'assets/{name}{suffix}.svg'],name)
                 h=int(re.search(r'height="(\d+)"',panel).group(1))
                 panel=panel.replace('<svg ',f'<svg x="0" y="{y}" ',1)
                 panels.append(panel);y+=h

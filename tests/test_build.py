@@ -112,4 +112,14 @@ class TestIntroReels(unittest.TestCase):
     def test_motto_never_rolls(self):
         self.assertNotIn('reel',b.text(0,30,'Motto',extra='font-style="italic"'))
 
+class TestEntrances(unittest.TestCase):
+    def test_wrapped_without_changing_data(self):
+        art=b.entrance_pass(b.svg(100,'<rect x="10" y="10" width="12" height="12"/>'),'contributions')
+        self.assertIn('enter-cell',art)
+        self.assertIn('prefers-reduced-motion',art)
+        self.assertIn('width="12"',art)
+    def test_motto_not_wrapped(self):
+        art=b.entrance_pass(b.svg(100,b.text(20,40,'Motto',extra='font-style="italic"')),'header')
+        self.assertNotIn('class="entrance"',art)
+
 if __name__=='__main__':unittest.main()
