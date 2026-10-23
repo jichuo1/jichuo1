@@ -47,3 +47,14 @@ class TestProfile(unittest.TestCase):
    b.write_all({'x/test':'good'},Path(d));self.assertEqual((Path(d)/'x/test').read_text(),'good')
  def test_no_placeholders(self):self.assertNotIn('Illustrative',str(b.outputs(self.summary())))
 if __name__=='__main__':unittest.main()
+
+class TestOriginalDecorations(unittest.TestCase):
+    def test_ornaments_safe_and_accessible(self):
+        for dark in (False, True):
+            for mobile in (False, True):
+                for kind in ('cat', 'orbit'):
+                    art = b.ornaments(kind, dark, mobile)
+                    self.assertIn('prefers-reduced-motion:reduce', art)
+                    self.assertNotIn('<script', art)
+                    self.assertNotIn('href=', art)
+                    self.assertIn('@keyframes', art)

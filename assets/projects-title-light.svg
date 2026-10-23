@@ -1,2 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="64" viewBox="0 0 900 64" role="img" aria-label="Projects">
-<title>Projects</title><style>text{fill:#16191c;font-family:Georgia,'Times New Roman',serif}.muted{fill:#626d80}.label{font:12px monospace;letter-spacing:1.2px;fill:#626d80}.rule{stroke:#e4e7eb}</style><rect width="900" height="64" fill="#ffffff"/><text x="18" y="44" font-size="30" class="" text-anchor="start" font-weight="bold">Projects</text></svg>
+<title>Projects</title><style>text{fill:#16191c;font-family:Georgia,'Times New Roman',serif}.muted{fill:#626d80}.label{font:12px monospace;letter-spacing:1.2px;fill:#626d80}.rule{stroke:#e4e7eb}</style><rect width="900" height="64" fill="#ffffff"/><text x="18" y="44" font-size="30" class="" text-anchor="start" font-weight="bold">Projects</text><style>
+    .float{animation:float 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+    .blink{animation:blink 7s infinite;transform-box:fill-box;transform-origin:center}
+    .tap{animation:tap 1.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+    .twinkle{animation:twinkle 5s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+    @keyframes blink{0%,44%,48%,100%{transform:scaleY(1)}46%{transform:scaleY(.15)}}
+    @keyframes tap{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+    @keyframes twinkle{0%,100%{opacity:.45}50%{opacity:1}}
+    @media(prefers-reduced-motion:reduce){.float,.blink,.tap,.twinkle{animation:none}}
+    </style><g transform="translate(818 12) scale(0.75)">
+    <path d="M-26 37Q-44 38-36 21" fill="none" stroke="#29364b" stroke-width="3" stroke-linecap="round"/>
+    <path d="M-24 35L-23 6-11 13Q0 9 11 13L23 6 24 35Q0 46-24 35" fill="#f2f6fc" stroke="#29364b" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M-19 13l6 4m26 0 6-4" stroke="#d8b64c" stroke-width="3" stroke-linecap="round"/>
+    <g class="blink" fill="#29364b"><ellipse cx="-9" cy="25" rx="1.7" ry="2.3"/><ellipse cx="9" cy="25" rx="1.7" ry="2.3"/></g>
+    <path d="M-3 30q3 4 6 0" fill="none" stroke="#29364b" stroke-width="1.5" stroke-linecap="round"/>
+    <rect x="-31" y="39" width="62" height="12" rx="4" fill="#3b78d6"/>
+    <path d="M-22 45h5m5 0h5m5 0h5m5 0h5m5 0h5" stroke="#f2f6fc" stroke-width="2"/>
+    <g class="tap" fill="#f2f6fc" stroke="#29364b" stroke-width="1.5"><ellipse cx="-14" cy="39" rx="7" ry="4"/><ellipse cx="14" cy="39" rx="7" ry="4"/></g></g></svg>

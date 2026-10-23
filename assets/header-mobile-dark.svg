@@ -1,2 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="480" height="100" viewBox="0 0 480 100" role="img" aria-label="Motto">
-<title>Motto</title><style>text{fill:#f0eee8;font-family:Georgia,'Times New Roman',serif}.muted{fill:#a8b4c4}.label{font:12px monospace;letter-spacing:1.2px;fill:#a8b4c4}.rule{stroke:#30363d}</style><rect width="900" height="100" fill="#0d1117"/><text x="240" y="48" font-size="19" class="" text-anchor="middle" font-style="italic">Many begin well; few see it through.</text><path d="M212 68H268" stroke="#d8b64c" stroke-width="2"/></svg>
+<title>Motto</title><style>text{fill:#f0eee8;font-family:Georgia,'Times New Roman',serif}.muted{fill:#a8b4c4}.label{font:12px monospace;letter-spacing:1.2px;fill:#a8b4c4}.rule{stroke:#30363d}</style><rect width="900" height="100" fill="#0d1117"/><text x="240" y="48" font-size="19" class="" text-anchor="middle" font-style="italic">Many begin well; few see it through.</text><path d="M212 68H268" stroke="#d8b64c" stroke-width="2"/><style>
+    .float{animation:float 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+    .blink{animation:blink 7s infinite;transform-box:fill-box;transform-origin:center}
+    .tap{animation:tap 1.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+    .twinkle{animation:twinkle 5s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+    @keyframes blink{0%,44%,48%,100%{transform:scaleY(1)}46%{transform:scaleY(.15)}}
+    @keyframes tap{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+    @keyframes twinkle{0%,100%{opacity:.45}50%{opacity:1}}
+    @media(prefers-reduced-motion:reduce){.float,.blink,.tap,.twinkle{animation:none}}
+    </style><g transform="translate(426 21) scale(0.48)"><g class="float">
+        <circle cx="0" cy="0" r="22" fill="#263345" stroke="#dce6ef" stroke-width="1.6"/>
+        <path d="M-12-12Q-5-19 3-18M10 11l3 2" fill="none" stroke="#75a9ff" stroke-width="3" stroke-linecap="round"/>
+        <ellipse rx="39" ry="9" transform="rotate(-25)" fill="none" stroke="#d8b64c" stroke-width="2.4"/>
+        <circle cx="34" cy="-16" r="3" fill="#75a9ff"/></g>
+        <path class="twinkle" d="M-49-25v10m-5-5h10M41 24v8m-4-4h8" stroke="#d8b64c" stroke-width="1.6" stroke-linecap="round"/></g></svg>

@@ -94,6 +94,41 @@ def svg(height, body, dark=False, title='Profile statistics'):
 def text(x,y,s,size=20,cls='',anchor='start',extra=''):
     return f'<text x="{x}" y="{y}" font-size="{size}" class="{cls}" text-anchor="{anchor}" {extra}>{esc(s)}</text>'
 
+def ornaments(kind, dark=False, mobile=False):
+    """Original vector miniatures; no third-party artwork or external requests."""
+    ink = '#dce6ef' if dark else '#29364b'
+    paper = '#263345' if dark else '#f2f6fc'
+    blue = '#75a9ff' if dark else '#3b78d6'
+    style = '''<style>
+    .float{animation:float 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+    .blink{animation:blink 7s infinite;transform-box:fill-box;transform-origin:center}
+    .tap{animation:tap 1.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+    .twinkle{animation:twinkle 5s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+    @keyframes blink{0%,44%,48%,100%{transform:scaleY(1)}46%{transform:scaleY(.15)}}
+    @keyframes tap{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+    @keyframes twinkle{0%,100%{opacity:.45}50%{opacity:1}}
+    @media(prefers-reduced-motion:reduce){.float,.blink,.tap,.twinkle{animation:none}}
+    </style>'''
+    if kind == 'orbit':
+        x,y,scale = (426,21,.48) if mobile else (795,43,.72)
+        return style + f'''<g transform="translate({x} {y}) scale({scale})"><g class="float">
+        <circle cx="0" cy="0" r="22" fill="{paper}" stroke="{ink}" stroke-width="1.6"/>
+        <path d="M-12-12Q-5-19 3-18M10 11l3 2" fill="none" stroke="{blue}" stroke-width="3" stroke-linecap="round"/>
+        <ellipse rx="39" ry="9" transform="rotate(-25)" fill="none" stroke="#d8b64c" stroke-width="2.4"/>
+        <circle cx="34" cy="-16" r="3" fill="{blue}"/></g>
+        <path class="twinkle" d="M-49-25v10m-5-5h10M41 24v8m-4-4h8" stroke="#d8b64c" stroke-width="1.6" stroke-linecap="round"/></g>'''
+    x,y,scale = (416,15,.62) if mobile else (818,12,.75)
+    return style + f'''<g transform="translate({x} {y}) scale({scale})">
+    <path d="M-26 37Q-44 38-36 21" fill="none" stroke="{ink}" stroke-width="3" stroke-linecap="round"/>
+    <path d="M-24 35L-23 6-11 13Q0 9 11 13L23 6 24 35Q0 46-24 35" fill="{paper}" stroke="{ink}" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M-19 13l6 4m26 0 6-4" stroke="#d8b64c" stroke-width="3" stroke-linecap="round"/>
+    <g class="blink" fill="{ink}"><ellipse cx="-9" cy="25" rx="1.7" ry="2.3"/><ellipse cx="9" cy="25" rx="1.7" ry="2.3"/></g>
+    <path d="M-3 30q3 4 6 0" fill="none" stroke="{ink}" stroke-width="1.5" stroke-linecap="round"/>
+    <rect x="-31" y="39" width="62" height="12" rx="4" fill="{blue}"/>
+    <path d="M-22 45h5m5 0h5m5 0h5m5 0h5m5 0h5" stroke="{paper}" stroke-width="2"/>
+    <g class="tap" fill="{paper}" stroke="{ink}" stroke-width="1.5"><ellipse cx="-14" cy="39" rx="7" ry="4"/><ellipse cx="14" cy="39" rx="7" ry="4"/></g></g>'''
+
 def render(s,dark):
     out={}
     out['header']=svg(128,text(450,63,'Many begin well; few see it through.',25,anchor='middle',extra='font-style="italic"')+'<path d="M414 87H486" stroke="#d8b64c" stroke-width="2"/>',dark,'Many begin well; few see it through.')
@@ -101,8 +136,10 @@ def render(s,dark):
     for i,(key,label) in enumerate([('stars','STARS'),('repos','REPOSITORIES'),('forks','FORKS'),('downloads','DOWNLOADS¹')]):
         x=112.5+i*225
         body+=text(x,53,format(s[key],','),42,anchor='middle')+text(x,81,label,cls='label',anchor='middle')
+    out['header']=out['header'].replace('</svg>',ornaments('orbit',dark)+'</svg>')
     out['stats']=svg(112,body,dark,'Public repository statistics; downloads across four featured projects')
     out['projects-title']=svg(64,text(18,44,'Projects',30,extra='font-weight="bold"'),dark,'Projects')
+    out['projects-title']=out['projects-title'].replace('</svg>',ornaments('cat',dark)+'</svg>')
     for p in s['projects']:
         # Long names remain readable at native README width; each entire image is linked.
         size=26 if len(p['name'])<25 else 24
@@ -147,8 +184,10 @@ def mobile_render(s,dark):
     for i,(key,label) in enumerate([('stars','STARS'),('repos','REPOSITORIES'),('forks','FORKS'),('downloads','DOWNLOADS¹')]):
         x=120+(i%2)*240;y=43+(i//2)*88
         body+=text(x,y,format(s[key],','),36,anchor='middle')+text(x,y+25,label,cls='label',anchor='middle')
+    out['header']=out['header'].replace('</svg>',ornaments('orbit',dark,True)+'</svg>')
     out['stats']=wrap(180,body,'Public repository statistics')
     out['projects-title']=wrap(60,text(18,40,'Projects',28,extra='font-weight="bold"'),'Projects')
+    out['projects-title']=out['projects-title'].replace('</svg>',ornaments('cat',dark,True)+'</svg>')
     for p in s['projects']:
         body=text(18,31,p['name'],23,extra='font-weight="bold"')+text(18,58,p['description'],16,'muted')
         body+=text(18,87,p['version'],16,'muted')+text(460,87,str(p['stars'])+' stars',16,'muted','end')+'<path d="M18 106H462" class="rule"/>'

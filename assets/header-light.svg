@@ -1,2 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="128" viewBox="0 0 900 128" role="img" aria-label="Many begin well; few see it through.">
-<title>Many begin well; few see it through.</title><style>text{fill:#16191c;font-family:Georgia,'Times New Roman',serif}.muted{fill:#626d80}.label{font:12px monospace;letter-spacing:1.2px;fill:#626d80}.rule{stroke:#e4e7eb}</style><rect width="900" height="128" fill="#ffffff"/><text x="450" y="63" font-size="25" class="" text-anchor="middle" font-style="italic">Many begin well; few see it through.</text><path d="M414 87H486" stroke="#d8b64c" stroke-width="2"/></svg>
+<title>Many begin well; few see it through.</title><style>text{fill:#16191c;font-family:Georgia,'Times New Roman',serif}.muted{fill:#626d80}.label{font:12px monospace;letter-spacing:1.2px;fill:#626d80}.rule{stroke:#e4e7eb}</style><rect width="900" height="128" fill="#ffffff"/><text x="450" y="63" font-size="25" class="" text-anchor="middle" font-style="italic">Many begin well; few see it through.</text><path d="M414 87H486" stroke="#d8b64c" stroke-width="2"/><style>
+    .float{animation:float 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+    .blink{animation:blink 7s infinite;transform-box:fill-box;transform-origin:center}
+    .tap{animation:tap 1.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+    .twinkle{animation:twinkle 5s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+    @keyframes blink{0%,44%,48%,100%{transform:scaleY(1)}46%{transform:scaleY(.15)}}
+    @keyframes tap{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+    @keyframes twinkle{0%,100%{opacity:.45}50%{opacity:1}}
+    @media(prefers-reduced-motion:reduce){.float,.blink,.tap,.twinkle{animation:none}}
+    </style><g transform="translate(795 43) scale(0.72)"><g class="float">
+        <circle cx="0" cy="0" r="22" fill="#f2f6fc" stroke="#29364b" stroke-width="1.6"/>
+        <path d="M-12-12Q-5-19 3-18M10 11l3 2" fill="none" stroke="#3b78d6" stroke-width="3" stroke-linecap="round"/>
+        <ellipse rx="39" ry="9" transform="rotate(-25)" fill="none" stroke="#d8b64c" stroke-width="2.4"/>
+        <circle cx="34" cy="-16" r="3" fill="#3b78d6"/></g>
+        <path class="twinkle" d="M-49-25v10m-5-5h10M41 24v8m-4-4h8" stroke="#d8b64c" stroke-width="1.6" stroke-linecap="round"/></g></svg>
