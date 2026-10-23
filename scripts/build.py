@@ -386,7 +386,9 @@ def outputs(s):
             corner=f'<g class="poster-curl"><path d="M{width-34} {y}Q{width-12} {y-8} {width} {y-36}L{width} {y}Z" fill="{wall}"/><path d="M{width-34} {y}Q{width-13} {y-10} {width} {y-36}Q{width-24} {y-30} {width-34} {y}Z" fill="{curl}" stroke="{ink}" stroke-opacity=".2"/></g>'
             out[f'assets/poster{suffix}.svg']=f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-label="Animated project statistics poster"><title>Public project statistics, updated every six hours</title>{css}<rect width="{w}" height="{h}" fill="{wall}"/>{shadow}<g transform="translate({pad} {pad})"><g class="poster-sheet"><g class="poster-flutter">'+''.join(panels)+corner+'</g></g></g></svg>'
     links=' · '.join(f'<a href="https://github.com/{OWNER}/{p["name"]}">{p["name"]}</a>' for p in s['projects'])
-    out['README.md']=picture('poster','Animated public project statistics poster',f'https://github.com/{OWNER}?tab=overview')+'\n\n<p align="center">'+links+'</p>\n'
+    out['assets/portal.svg']='<svg xmlns="http://www.w3.org/2000/svg" width="48" height="40" viewBox="0 0 48 40" role="img" aria-label="Explore the interactive paper"><circle cx="24" cy="20" r="11" fill="#f5edda" stroke="#4479c4"/><ellipse cx="24" cy="20" rx="21" ry="6" transform="rotate(-25 24 20)" fill="none" stroke="#c7a341" stroke-width="1.5"/><circle cx="42" cy="10" r="2" fill="#c7a341"/></svg>'
+    portal='<p align="right"><a href="https://paper-observatory.airymink6.chatgpt.site" title="探索互动纸张"><img src="assets/portal.svg" width="40" height="34" alt="探索互动主页"></a></p>\n'
+    out['README.md']=portal+picture('poster','Animated public project statistics poster',f'https://github.com/{OWNER}?tab=overview')+'\n\n<p align="center">'+links+'</p>\n'
 
     out['data/snapshot.json']=json.dumps(s,ensure_ascii=False,indent=2)+'\n'
     return out

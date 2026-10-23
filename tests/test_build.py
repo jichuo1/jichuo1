@@ -36,7 +36,7 @@ class TestProfile(unittest.TestCase):
  def test_language_counts(self):self.assertEqual(sum(self.summary()['languages'].values()),7)
  def test_fork_included(self):self.assertEqual(len([r for r in self.source['repos'] if r['fork']]),2)
  def test_clickable(self):
-  readme=b.outputs(self.summary())['README.md'];self.assertEqual(readme.count('<a href='),5);self.assertIn('prefers-color-scheme: dark',readme)
+  readme=b.outputs(self.summary())['README.md'];self.assertEqual(readme.count('<a href='),6);self.assertIn('prefers-color-scheme: dark',readme)
  def test_pagination(self):
   calls=[]
   def fetch(url,token):calls.append(url);return json.dumps([{}]*100 if len(calls)==1 else [{}])
