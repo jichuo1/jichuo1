@@ -90,4 +90,26 @@ class TestNaturalMotion(unittest.TestCase):
         self.assertIn('<text',b.text(0,30,'Many begin well;',extra='font-style="italic"'))
         self.assertIn('aria-label="160"',b.text(0,30,160))
 
+class TestGustPoster(unittest.TestCase):
+    def test_shared_clock_and_reduced_motion(self):
+        source=Path(b.__file__).read_text()
+        self.assertIn('paper-gust 7.1s',source)
+        self.assertIn('paper-flutter 2.31s',source)
+        self.assertIn('.poster-sheet,.poster-flutter,.poster-curl,.paper-shadow{animation:none}',source)
+    def test_detailed_scene_geometry(self):
+        for name in b.FEATURED:
+            art=b.project_scene(name,1,1)
+            self.assertIn('cubic-bezier',art)
+            self.assertNotIn('<script',art)
+
+class TestIntroReels(unittest.TestCase):
+    def test_reels_once_and_accessible(self):
+        art=b.text(0,30,160)
+        self.assertIn('reel-column',art)
+        self.assertIn('1 both',art)
+        self.assertIn('aria-label="160"',art)
+        self.assertNotIn('infinite',art)
+    def test_motto_never_rolls(self):
+        self.assertNotIn('reel',b.text(0,30,'Motto',extra='font-style="italic"'))
+
 if __name__=='__main__':unittest.main()
