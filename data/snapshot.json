@@ -1,16 +1,16 @@
 {
-  "checked_at": "2026-10-24T20:59:11+00:00",
+  "checked_at": "2026-10-25T04:57:11+00:00",
   "stars": 165,
   "repos": 9,
   "forks": 11,
-  "downloads": 3938,
+  "downloads": 3944,
   "projects": [
     {
       "name": "Bilibili_Innocent_Lab",
       "description": "Modular Android runtime exploration.",
       "stars": 137,
       "version": "v1.2.1",
-      "downloads": 3268
+      "downloads": 3274
     },
     {
       "name": "LumenCoacervationEngine",
@@ -41,34 +41,6 @@
     "Java": 1
   },
   "calendar": [
-    [
-      "2025-10-19",
-      0
-    ],
-    [
-      "2025-10-20",
-      0
-    ],
-    [
-      "2025-10-21",
-      0
-    ],
-    [
-      "2025-10-22",
-      0
-    ],
-    [
-      "2025-10-23",
-      0
-    ],
-    [
-      "2025-10-24",
-      0
-    ],
-    [
-      "2025-10-25",
-      0
-    ],
     [
       "2025-10-26",
       0
@@ -1524,6 +1496,10 @@
     [
       "2026-10-24",
       2
+    ],
+    [
+      "2026-10-25",
+      1
     ]
   ],
   "calendar_source": "https://github.com/users/jichuo1/contributions"
