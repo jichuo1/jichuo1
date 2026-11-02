@@ -15,6 +15,41 @@ FEATURED = {
  'GlobalTokenTracker': 'Native visibility into AI coding usage.',
 }
 
+FEATURED_REPOSITORIES = {name: f'{OWNER}/{name}' for name in FEATURED}
+FEATURED_REPOSITORIES['LumenCoacervationEngine'] = 'Meguvizarchic/LumenCoacervationEngine'
+# Only explicitly approved external repositories contribute to account totals.
+EXTERNAL_REPOSITORIES = {'Meguvizarchic/LumenCoacervationEngine': 1391143536}
+
+def validate_repository(r):
+    full_name = r['full_name']
+    if full_name == OWNER + '/' + r['name']:
+        return
+    if (full_name not in EXTERNAL_REPOSITORIES or
+            r.get('id') != EXTERNAL_REPOSITORIES[full_name] or
+            full_name.rsplit('/', 1)[1] != r['name']):
+        raise ValueError('Unexpected repository owner or identity')
+
+def collect_repositories(token=None, fetch=None):
+    fetch = fetch or get
+    repos = pages(f'/users/{OWNER}/repos?type=owner', token, fetch)
+    # Fetch each featured project independently: transfers remove it from owner listings.
+    for full_name in FEATURED_REPOSITORIES.values():
+        r = json.loads(fetch(f'https://api.github.com/repos/{full_name}', token))
+        if r.get('private') is not False or r.get('full_name') != full_name:
+            raise ValueError('Unexpected featured repository')
+        validate_repository(r)
+        matches = [i for i, old in enumerate(repos)
+                   if old.get('id') == r['id'] or old.get('full_name') == full_name]
+        if len(matches) > 1:
+            raise ValueError('Duplicate repository identity')
+        if matches:
+            repos[matches[0]] = r
+        else:
+            repos.append(r)
+    return [{k: r[k] for k in ('id', 'name', 'full_name', 'private', 'fork',
+                              'language', 'stargazers_count', 'forks_count')}
+            for r in repos if r['private'] is False]
+
 def get(url, token=None):
     headers = {'User-Agent': 'personal-profile-statistics', 'Accept': 'application/vnd.github+json'}
     if token and url.startswith('https://api.github.com/'):
@@ -64,14 +99,16 @@ def summarize(source, days):
     public=[]
     for r in repos:
         if r.get('private') is not False: continue
-        if r['full_name']!=OWNER+'/'+r['name']: raise ValueError('Unexpected repository owner')
+        validate_repository(r)
         number(r['stargazers_count']);number(r['forks_count'])
         public.append(r)
-    if len({r['name'] for r in public})!=len(public): raise ValueError('Duplicate repository')
-    byname={r['name']:r for r in public}
+    if len({r['full_name'] for r in public})!=len(public): raise ValueError('Duplicate repository')
+    ids = [r['id'] for r in public if 'id' in r]
+    if len(set(ids)) != len(ids): raise ValueError('Duplicate repository identity')
+    byname={r['full_name']:r for r in public}
     projects=[]
     for name,description in FEATURED.items():
-        r=byname[name]; releases=source['releases'][name]
+        r=byname[FEATURED_REPOSITORIES[name]]; releases=source['releases'][name]
         if len({x['id'] for x in releases})!=len(releases): raise ValueError('Duplicate release')
         releases=[x for x in releases if not x['draft']]
         stable=[x for x in releases if not x['prerelease']]
@@ -366,7 +403,7 @@ def outputs(s):
         for name,content in mobile_render(s,dark).items(): out[f'assets/{name}-mobile-{"dark" if dark else "light"}.svg']=content
         for name,content in render(s,dark).items(): out[f'assets/{name}-{"dark" if dark else "light"}.svg']=content
     parts=[picture('header','Many begin well; few see it through.'),picture('stats','Public repository statistics'),picture('projects-title','Projects')]
-    parts += [picture('project-'+p['name'],p['name']+' — '+p['description'],f'https://github.com/{OWNER}/{p["name"]}') for p in s['projects']]
+    parts += [picture('project-'+p['name'],p['name']+' — '+p['description'],f'https://github.com/{FEATURED_REPOSITORIES[p["name"]]}') for p in s['projects']]
     parts += [picture('languages','Repository count by primary language'),picture('contributions','GitHub contribution calendar',f'https://github.com/{OWNER}?tab=overview'),picture('footnote','Statistics scope and update time')]
     order=['header','stats','projects-title']+['project-'+p['name'] for p in s['projects']]+['languages','contributions','footnote']
     for dark in (False,True):
@@ -385,7 +422,7 @@ def outputs(s):
             shadow=f'<rect class="paper-shadow" x="{pad+4}" y="{pad+6}" width="{width}" height="{y}" rx="2" fill="{ink}" opacity=".12"/>'
             corner=f'<g class="poster-curl"><path d="M{width-34} {y}Q{width-12} {y-8} {width} {y-36}L{width} {y}Z" fill="{wall}"/><path d="M{width-34} {y}Q{width-13} {y-10} {width} {y-36}Q{width-24} {y-30} {width-34} {y}Z" fill="{curl}" stroke="{ink}" stroke-opacity=".2"/></g>'
             out[f'assets/poster{suffix}.svg']=f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-label="Animated project statistics poster"><title>Public project statistics, updated every six hours</title>{css}<rect width="{w}" height="{h}" fill="{wall}"/>{shadow}<g transform="translate({pad} {pad})"><g class="poster-sheet"><g class="poster-flutter">'+''.join(panels)+corner+'</g></g></g></svg>'
-    links=' · '.join(f'<a href="https://github.com/{OWNER}/{p["name"]}">{p["name"]}</a>' for p in s['projects'])
+    links=' · '.join(f'<a href="https://github.com/{FEATURED_REPOSITORIES[p["name"]]}">{p["name"]}</a>' for p in s['projects'])
     out['assets/portal.svg']='<svg xmlns="http://www.w3.org/2000/svg" width="48" height="40" viewBox="0 0 48 40" role="img" aria-label="Explore the interactive paper"><circle cx="24" cy="20" r="11" fill="#f5edda" stroke="#4479c4"/><ellipse cx="24" cy="20" rx="21" ry="6" transform="rotate(-25 24 20)" fill="none" stroke="#c7a341" stroke-width="1.5"/><circle cx="42" cy="10" r="2" fill="#c7a341"/></svg>'
     portal='<p align="right"><a href="https://jichuo1.github.io/jichuo1/" title="探索互动纸张"><img src="assets/portal.svg" width="40" height="34" alt="探索互动主页"></a></p>\n'
     out['README.md']=portal+picture('poster','Animated public project statistics poster',f'https://github.com/{OWNER}?tab=overview')+'\n\n<p align="center">'+links+'</p>\n'
@@ -414,9 +451,8 @@ def main():
         source=json.loads(a.source.read_text());raw=a.calendar.read_text()
     else:
         token=os.environ.get('GITHUB_TOKEN')
-        repos=pages(f'/users/{OWNER}/repos?type=owner',token)
-        repos=[{k:r[k] for k in ('name','full_name','private','fork','language','stargazers_count','forks_count')} for r in repos if not r['private']]
-        releases={name:pages(f'/repos/{OWNER}/{name}/releases',token) for name in FEATURED}
+        repos=collect_repositories(token)
+        releases={name:pages(f'/repos/{full_name}/releases',token) for name,full_name in FEATURED_REPOSITORIES.items()}
         # Public HTML requires no PAT and exposes no private repository names.
         raw=get(f'https://github.com/users/{OWNER}/contributions')
         source={'repos':repos,'releases':releases,'checked_at':dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds')}

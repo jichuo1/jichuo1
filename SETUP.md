@@ -10,7 +10,7 @@ The supplied schedule is 00:23, 06:23, 12:23 and 18:23 UTC. GitHub may delay sch
 
 ## Data definitions
 
-- Stars and forks: sums across all public repositories owned by this account, including fork repositories. Repositories: all public owned repositories; private repositories are excluded. A new profile repository will naturally increase the repository count after the first update.
+- Stars and forks: sums across all public repositories owned by this account plus explicitly allowlisted Meguvizarchic/LumenCoacervationEngine (repository ID 1391143536), including fork repositories, deduplicated by repository ID. Repositories: the same scope; other organization repositories are not automatically included; private repositories are excluded. A new profile repository will naturally increase the repository count after the first update.
 - Downloads: all public Release asset download counters in the four featured projects, including prerelease assets. These are not users, unique downloads, source archive downloads or Actions artifacts.
 - Project version: most recently published non-draft, non-prerelease Release. A Canary is never promoted to stable.
 - Languages: number of public repositories by their GitHub primary language, not code bytes, coding time or proficiency. Unknown languages are Other.
