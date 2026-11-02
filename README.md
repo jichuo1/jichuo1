@@ -8,4 +8,4 @@
 </picture>
 </a>
 
-<p align="center"><a href="https://github.com/jichuo1/Bilibili_Innocent_Lab">Bilibili_Innocent_Lab</a> · <a href="https://github.com/jichuo1/LumenCoacervationEngine">LumenCoacervationEngine</a> · <a href="https://github.com/jichuo1/SplashScreenAdvanced">SplashScreenAdvanced</a> · <a href="https://github.com/jichuo1/GlobalTokenTracker">GlobalTokenTracker</a></p>
+<p align="center"><a href="https://github.com/jichuo1/Bilibili_Innocent_Lab">Bilibili_Innocent_Lab</a> · <a href="https://github.com/Meguvizarchic/LumenCoacervationEngine">LumenCoacervationEngine</a> · <a href="https://github.com/jichuo1/SplashScreenAdvanced">SplashScreenAdvanced</a> · <a href="https://github.com/jichuo1/GlobalTokenTracker">GlobalTokenTracker</a></p>
