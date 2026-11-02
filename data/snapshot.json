@@ -1,30 +1,30 @@
 {
-  "checked_at": "2026-11-01T06:26:53+00:00",
-  "stars": 182,
-  "repos": 20,
-  "forks": 11,
-  "downloads": 4565,
+  "checked_at": "2026-11-02T07:04:14+00:00",
+  "stars": 186,
+  "repos": 9,
+  "forks": 10,
+  "downloads": 4618,
   "projects": [
     {
       "name": "Bilibili_Innocent_Lab",
       "description": "Modular Android runtime exploration.",
-      "stars": 152,
+      "stars": 155,
       "version": "v1.2.1",
-      "downloads": 3475
+      "downloads": 3488
     },
     {
       "name": "LumenCoacervationEngine",
       "description": "Materials and motion for Android View.",
-      "stars": 5,
+      "stars": 6,
       "version": "1.6.1",
       "downloads": 807
     },
     {
       "name": "SplashScreenAdvanced",
       "description": "A considered start to every app.",
-      "stars": 23,
-      "version": "v1.0.7",
-      "downloads": 241
+      "stars": 25,
+      "version": "v1.0.8",
+      "downloads": 281
     },
     {
       "name": "GlobalTokenTracker",
@@ -35,11 +35,10 @@
     }
   ],
   "languages": {
-    "Kotlin": 6,
+    "Kotlin": 5,
     "Rust": 1,
-    "Python": 4,
-    "Java": 5,
-    "C++": 4
+    "Python": 2,
+    "Java": 1
   },
   "calendar": [
     [
@@ -1484,7 +1483,7 @@
     ],
     [
       "2026-10-28",
-      4
+      3
     ],
     [
       "2026-10-29",
@@ -1500,6 +1499,10 @@
     ],
     [
       "2026-11-01",
+      4
+    ],
+    [
+      "2026-11-02",
       1
     ]
   ],
