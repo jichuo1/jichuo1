@@ -1,37 +1,37 @@
 {
-  "checked_at": "2026-11-21T07:26:03+00:00",
-  "stars": 212,
+  "checked_at": "2026-11-21T19:29:58+00:00",
+  "stars": 213,
   "repos": 10,
   "forks": 11,
-  "downloads": 5818,
+  "downloads": 5866,
   "projects": [
     {
       "name": "Bilibili_Innocent_Lab",
       "description": "Modular Android runtime exploration.",
-      "stars": 179,
+      "stars": 180,
       "version": "v1.2.2",
-      "downloads": 4176
+      "downloads": 4211
     },
     {
       "name": "LumenCoacervationEngine",
       "description": "Materials and motion for Android View.",
       "stars": 6,
       "version": "1.6.2",
-      "downloads": 1152
+      "downloads": 1153
     },
     {
       "name": "SplashScreenAdvanced",
       "description": "A considered start to every app.",
       "stars": 27,
       "version": "v1.1.0",
-      "downloads": 395
+      "downloads": 401
     },
     {
       "name": "GlobalTokenTracker",
       "description": "Native visibility into AI coding usage.",
       "stars": 0,
-      "version": "v1.0.1",
-      "downloads": 95
+      "version": "v1.0.2",
+      "downloads": 101
     }
   ],
   "languages": {
