@@ -1,16 +1,16 @@
 {
-  "checked_at": "2026-11-24T22:37:11+00:00",
+  "checked_at": "2026-11-25T08:52:08+00:00",
   "stars": 220,
   "repos": 11,
   "forks": 11,
-  "downloads": 5994,
+  "downloads": 6017,
   "projects": [
     {
       "name": "Bilibili_Innocent_Lab",
       "description": "Modular Android runtime exploration.",
       "stars": 187,
       "version": "v1.2.2",
-      "downloads": 4330
+      "downloads": 4352
     },
     {
       "name": "LumenCoacervationEngine",
@@ -24,7 +24,7 @@
       "description": "A considered start to every app.",
       "stars": 27,
       "version": "v1.1.0",
-      "downloads": 410
+      "downloads": 411
     },
     {
       "name": "GlobalTokenTracker",
@@ -1507,6 +1507,10 @@
     ],
     [
       "2026-11-24",
+      1
+    ],
+    [
+      "2026-11-25",
       1
     ]
   ],
