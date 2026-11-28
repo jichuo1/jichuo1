@@ -1,16 +1,16 @@
 {
-  "checked_at": "2026-11-27T21:28:14+00:00",
+  "checked_at": "2026-11-28T08:05:59+00:00",
   "stars": 222,
   "repos": 11,
-  "forks": 12,
-  "downloads": 6104,
+  "forks": 13,
+  "downloads": 6116,
   "projects": [
     {
       "name": "Bilibili_Innocent_Lab",
       "description": "Modular Android runtime exploration.",
       "stars": 189,
       "version": "v1.2.2",
-      "downloads": 4430
+      "downloads": 4442
     },
     {
       "name": "LumenCoacervationEngine",
@@ -1519,6 +1519,10 @@
     ],
     [
       "2026-11-27",
+      1
+    ],
+    [
+      "2026-11-28",
       1
     ]
   ],
